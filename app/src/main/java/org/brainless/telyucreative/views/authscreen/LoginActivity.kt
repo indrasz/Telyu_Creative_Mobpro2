@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.brainless.telyucreative.databinding.ActivityLoginBinding
+import org.brainless.telyucreative.views.mainscreen.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -16,6 +17,11 @@ class LoginActivity : AppCompatActivity() {
 
         binding.tvRegisterOptionClick.setOnClickListener{
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnLogin.setOnClickListener{
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
         }
     }

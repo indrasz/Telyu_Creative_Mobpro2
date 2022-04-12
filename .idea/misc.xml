@@ -3,12 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bottom_selector_item.xml" value="0.178" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_auth.xml" value="0.15307971014492755" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_main.xml" value="0.15307971014492755" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_splash_screen.xml" value="0.17300724637681159" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_category.xml" value="0.15715579710144928" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_home.xml" value="0.15715579710144928" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_profile.xml" value="0.15715579710144928" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_search.xml" value="0.15715579710144928" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/layout_toolbar.xml" value="0.25" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>
     </option>
   </component>
