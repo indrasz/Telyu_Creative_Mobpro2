@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
         <activity
-            android:name="org.brainless.telyucreative.views.authscreen.RegisterActivity"
+            android:name=".views.authscreen.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name="org.brainless.telyucreative.views.authscreen.LoginActivity"
+            android:name=".views.authscreen.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".views.splashscreen.SplashScreenActivity"
