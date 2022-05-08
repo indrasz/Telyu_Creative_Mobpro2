@@ -10,6 +10,7 @@
     <string name="register">Create Account</string>
     <string name="login_option">Already have account?</string>
     <string name="tv_login">Login</string>
+    <string name="please_wait">Please Wait</string>
     <string name="register_option_click">Register Here</string>
     <string name="hint_email">Enter your email</string>
     <string name="hint_password">Enter Your Password</string>

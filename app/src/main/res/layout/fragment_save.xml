@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.mainscreen.category.CategoryFragment">
+    tools:context=".views.mainscreen.save.SaveFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
