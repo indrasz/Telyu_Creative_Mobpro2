@@ -83,25 +83,26 @@
 
         <EditText
             android:id="@+id/edt_password"
+            style="@style/TextView.input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="32dp"
-            android:paddingStart="12dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:hint="@string/password"
-            style="@style/TextView.input"
             android:background="@drawable/bg_input"
+            android:ems="10"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_password"
-            android:importantForAutofill="no"
             tools:ignore="LabelFor" />
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -126,7 +127,7 @@
             style="@style/TextView.optionAuth"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login"/>
+            app:layout_constraintTop_toBottomOf="@+id/btn_register"/>
 
         <TextView
             android:id="@+id/tv_login_option_click"
@@ -139,7 +140,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_register_option"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login"/>
+            app:layout_constraintTop_toBottomOf="@+id/btn_register"/>
 
         <TextView
             android:id="@+id/textView"
