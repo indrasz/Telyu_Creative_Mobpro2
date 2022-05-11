@@ -44,4 +44,6 @@
     <string name="setting">Setting</string>
     <string name="payment">Payment</string>
     <string name="support">Support</string>
+    <string name="edit_profile">edit profile</string>
+    <string name="lihat_karya">Lihat Karya</string>
 </resources>

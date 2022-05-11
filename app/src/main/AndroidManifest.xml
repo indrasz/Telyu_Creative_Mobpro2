@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
         <activity
+            android:name=".views.mainscreen.account.upload.UploadKaryaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.mainscreen.account.telyuaccount.TelyuAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.mainscreen.account.dashboard.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.mainscreen.account.profile.EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.authscreen.ForgotPasswordActivity"
             android:exported="false" />
         <activity

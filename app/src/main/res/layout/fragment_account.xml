@@ -56,50 +56,63 @@
                     app:layout_constraintTop_toTopOf="@+id/profile_section" />
 
 
-                <TextView
-                    android:id="@+id/tv_edit_profile"
-                    style="@style/TextView.input"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/edit_profile"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/edit_my_profile"
-                    app:layout_constraintStart_toEndOf="@+id/iv_edit_profile"
-                    app:layout_constraintTop_toBottomOf="@+id/my_profile_title" />
-
-                <ImageView
-                    android:id="@+id/iv_edit_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_edit_profile"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/my_profile_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/my_profile_title"
+                    tools:ignore="UseCompoundDrawables">
 
-                <TextView
-                    android:id="@+id/tv_see_work"
-                    style="@style/TextView.input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:padding="10dp"
-                    android:text="@string/lihat_karya"
-                    app:layout_constraintStart_toEndOf="@+id/iv_see_work"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_edit_profile" />
+                    <ImageView
+                        android:id="@+id/iv_edit_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_edit_profile"
+                        android:contentDescription="@string/edit_profile" />
 
-                <ImageView
-                    android:id="@+id/iv_see_work"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/tv_edit_profile"
+                        style="@style/TextView.input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/edit_my_profile"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/see_work"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:src="@drawable/ic_see_works"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_edit_profile" />
+                    app:layout_constraintTop_toBottomOf="@+id/edit_profile"
+                    tools:ignore="UseCompoundDrawables">
 
+                    <ImageView
+                        android:id="@+id/iv_see_work"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/lihat_karya"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_see_works" />
+
+                    <TextView
+                        android:id="@+id/tv_see_work"
+                        style="@style/TextView.input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:text="@string/lihat_karya" />
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/project_section"
@@ -123,44 +136,68 @@
                     app:layout_constraintTop_toTopOf="@+id/project_section" />
 
 
-                <TextView
-                    android:id="@+id/tv_upload_work"
-                    style="@style/TextView.input"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/upload_work"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="@string/upload_karya"
-                    app:layout_constraintStart_toEndOf="@+id/iv_upload_work"
-                    app:layout_constraintTop_toBottomOf="@+id/project_title" />
-
-                <ImageView
-                    android:id="@+id/iv_upload_work"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_upload_works"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/project_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/project_title"
+                    tools:ignore="UseCompoundDrawables">
 
-                <TextView
-                    android:id="@+id/tv_dashboard"
-                    style="@style/TextView.input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:padding="10dp"
-                    android:text="@string/dashboard"
-                    app:layout_constraintStart_toEndOf="@+id/iv_dashboard"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_upload_work" />
+                    <ImageView
+                        android:id="@+id/iv_upload_work"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/upload_karya"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_upload_works" />
 
-                <ImageView
-                    android:id="@+id/iv_dashboard"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/tv_upload_work"
+                        style="@style/TextView.input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:text="@string/upload_karya" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/dashboard"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_dashboard"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_upload_work" />
+                    app:layout_constraintTop_toBottomOf="@+id/upload_work"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:id="@+id/iv_dashboard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/dashboard"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_dashboard"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_upload_work" />
+
+                    <TextView
+                        android:id="@+id/tv_dashboard"
+                        style="@style/TextView.input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/dashboard"
+                        app:layout_constraintStart_toEndOf="@+id/iv_dashboard"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_upload_work" />
+
+
+                </LinearLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -188,62 +225,91 @@
                     app:layout_constraintTop_toTopOf="@+id/general_section" />
 
 
-                <TextView
-                    android:id="@+id/tv_setting"
-                    style="@style/TextView.input"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/setting"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/setting"
-                    app:layout_constraintStart_toEndOf="@+id/iv_setting"
-                    app:layout_constraintTop_toBottomOf="@+id/general_title" />
-
-                <ImageView
-                    android:id="@+id/iv_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_setting"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/general_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/general_title">
 
-                <TextView
-                    android:id="@+id/tv_payment"
-                    style="@style/TextView.input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="11dp"
-                    android:text="@string/payment"
-                    app:layout_constraintStart_toEndOf="@+id/iv_payment"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_setting" />
+                    <ImageView
+                        android:id="@+id/iv_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_setting" />
 
-                <ImageView
-                    android:id="@+id/iv_payment"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/tv_setting"
+                        style="@style/TextView.input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:padding="10dp"
+                        android:text="@string/setting" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/payment"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_payment"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_setting" />
+                    app:layout_constraintTop_toBottomOf="@+id/setting">
 
-                <TextView
-                    android:id="@+id/tv_support"
-                    style="@style/TextView.input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="11dp"
-                    android:text="@string/support"
-                    app:layout_constraintStart_toEndOf="@+id/iv_support"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_payment" />
+                    <ImageView
+                        android:id="@+id/iv_payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_payment" />
 
-                <ImageView
-                    android:id="@+id/iv_support"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/tv_payment"
+                        style="@style/TextView.input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="11dp"
+                        android:text="@string/payment" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/support"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_support"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_payment" />
+                    app:layout_constraintTop_toBottomOf="@+id/payment">
+
+                    <ImageView
+                        android:id="@+id/iv_support"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_support"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_payment" />
+
+                    <TextView
+                        android:id="@+id/tv_support"
+                        style="@style/TextView.input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="11dp"
+                        android:text="@string/support"
+                        app:layout_constraintStart_toEndOf="@+id/iv_support"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_payment" />
+
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
