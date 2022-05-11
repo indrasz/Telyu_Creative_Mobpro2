@@ -38,7 +38,6 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
                     startActivity(
                         Intent(
                             baseContext, MainActivity::class.java
-
                         )
                     )
                 }

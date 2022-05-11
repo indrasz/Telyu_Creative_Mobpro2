@@ -1,6 +1,8 @@
 package org.brainless.telyucreative.views.authscreen
 
 import android.app.Dialog
+import android.os.Handler
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
@@ -10,8 +12,8 @@ import org.brainless.telyucreative.databinding.DialogProgressBinding
 open class BaseActivity : AppCompatActivity() {
 
     private lateinit var mProgressDialog: Dialog
+    private var doubleBackToExitPressedOnce = false
     private lateinit var binding : DialogProgressBinding
-
 
     fun showErrorSnackBar(message : String, errorMessage: Boolean){
         val snackbar =
@@ -58,5 +60,24 @@ open class BaseActivity : AppCompatActivity() {
 
     fun hideProgressDialog() {
         mProgressDialog.dismiss()
+    }
+
+    fun doubleBackToExit() {
+
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+
+        Toast.makeText(
+            this,
+            resources.getString(R.string.please_click_back_again_to_exit),
+            Toast.LENGTH_SHORT
+        ).show()
+
+        @Suppress("DEPRECATION")
+        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 }
