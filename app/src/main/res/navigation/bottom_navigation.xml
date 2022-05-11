@@ -16,11 +16,6 @@
         android:label="fragment_category"
         tools:layout="@layout/fragment_save" />
     <fragment
-        android:id="@+id/navigation_chat"
-        android:name="org.brainless.telyucreative.views.mainscreen.chat.ChatFragment"
-        android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" />
-    <fragment
         android:id="@+id/navigation_profile"
         android:name="org.brainless.telyucreative.views.mainscreen.profile.ProfileFragment"
         android:label="fragment_profile"

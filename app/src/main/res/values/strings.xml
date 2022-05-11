@@ -31,4 +31,15 @@
     <string name="chat">chat</string>
     <string name="profile">profile</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="username">Username</string>
+    <string name="my_profile">My Profile</string>
+    <string name="edit_my_profile">Edit My Profile</string>
+    <string name="lihat_karya">Lihat Karya</string>
+    <string name="sent_a_project">Sent a Project</string>
+    <string name="upload_karya">Upload Karya</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="general">General</string>
+    <string name="setting">Setting</string>
+    <string name="payment">Payment</string>
+    <string name="support">Support</string>
 </resources>

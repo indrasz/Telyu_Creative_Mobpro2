@@ -34,7 +34,13 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
                 }
 
                 R.id.btn_login -> {
-                    logInRegisteredUser()
+//                    logInRegisteredUser()
+                    startActivity(
+                        Intent(
+                            baseContext, MainActivity::class.java
+
+                        )
+                    )
                 }
 
                 R.id.tv_register_option_click -> {
@@ -81,6 +87,7 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
                         startActivity(
                             Intent(
                                 baseContext, MainActivity::class.java
+
                             )
                         )
                         finish()
