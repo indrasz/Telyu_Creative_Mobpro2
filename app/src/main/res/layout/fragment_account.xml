@@ -63,8 +63,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/my_profile_title"
-                    tools:ignore="UseCompoundDrawables">
+                    app:layout_constraintTop_toBottomOf="@+id/my_profile_title">
 
                     <ImageView
                         android:id="@+id/iv_edit_profile"
@@ -80,6 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:gravity="center"
                         android:text="@string/edit_my_profile"/>
 
                 </LinearLayout>
@@ -108,6 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:padding="10dp"
+                        android:gravity="center"
                         android:text="@string/lihat_karya" />
 
                 </LinearLayout>
@@ -160,6 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="12dp"
+                        android:gravity="center"
                         android:text="@string/upload_karya" />
 
 
@@ -192,6 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:gravity="center"
                         android:text="@string/dashboard"
                         app:layout_constraintStart_toEndOf="@+id/iv_dashboard"
                         app:layout_constraintTop_toBottomOf="@+id/tv_upload_work" />
@@ -247,6 +250,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="45dp"
                         android:padding="10dp"
+                        android:gravity="center"
                         android:text="@string/setting" />
 
                 </LinearLayout>
@@ -273,6 +277,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="11dp"
+                        android:gravity="center"
                         android:text="@string/payment" />
 
                 </LinearLayout>
@@ -305,9 +310,9 @@
                         android:layout_height="wrap_content"
                         android:padding="11dp"
                         android:text="@string/support"
+                        android:gravity="center"
                         app:layout_constraintStart_toEndOf="@+id/iv_support"
                         app:layout_constraintTop_toBottomOf="@+id/tv_payment" />
-
 
                 </LinearLayout>
 

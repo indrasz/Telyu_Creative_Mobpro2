@@ -29,8 +29,11 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
             when (v.id) {
 
                 R.id.tv_forgot_password -> {
-                    val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
-                    startActivity(intent)
+                    startActivity(
+                        Intent(
+                            baseContext, ForgotPasswordActivity::class.java
+                        )
+                    )
                 }
 
                 R.id.btn_login -> {
@@ -43,8 +46,11 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
                 }
 
                 R.id.tv_register_option_click -> {
-                    val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-                    startActivity(intent)
+                    startActivity(
+                        Intent(
+                            baseContext, RegisterActivity::class.java
+                        )
+                    )
                 }
             }
         }
