@@ -2,12 +2,14 @@ package org.brainless.telyucreative.views.authscreen
 
 import android.os.Bundle
 import android.text.TextUtils
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityRegisterBinding
+import org.brainless.telyucreative.model.User
+import org.brainless.telyucreative.storage.FireStoreClass
+import org.brainless.telyucreative.utils.BaseActivity
 
 class RegisterActivity : BaseActivity() {
 
@@ -66,22 +68,38 @@ class RegisterActivity : BaseActivity() {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
 
-                    hideProgressDialog()
-
                     if (task.isSuccessful) {
 
                         val firebaseUser: FirebaseUser = task.result!!.user!!
 
-                        showErrorSnackBar(
-                            "You are registered successfully. Your user id is ${firebaseUser.uid}",
-                            false
+                        val user = User(
+                            firebaseUser.uid,
+                            binding.edtFirstName.text.toString().trim { it <= ' ' },
+                            binding.edtLastName.text.toString().trim { it <= ' ' },
+                            binding.edtEmail.text.toString().trim { it <= ' ' }
                         )
-                        FirebaseAuth.getInstance().signOut()
-                        finish()
+
+                        FireStoreClass().registerUser(this@RegisterActivity, user)
+
                     } else {
+                        hideProgressDialog()
                         showErrorSnackBar(task.exception!!.message.toString(), true)
                     }
                 }
         }
+    }
+
+    fun userRegistrationSuccess() {
+
+        hideProgressDialog()
+
+        Toast.makeText(
+            this@RegisterActivity,
+            resources.getString(R.string.register_success),
+            Toast.LENGTH_SHORT
+        ).show()
+
+        FirebaseAuth.getInstance().signOut()
+        finish()
     }
 }

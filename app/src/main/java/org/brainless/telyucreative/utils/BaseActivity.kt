@@ -1,13 +1,17 @@
-package org.brainless.telyucreative.views.authscreen
+package org.brainless.telyucreative.utils
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Handler
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.DialogProgressBinding
+import org.brainless.telyucreative.views.authscreen.LoginActivity
+import java.lang.Exception
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -77,7 +81,18 @@ open class BaseActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT
         ).show()
 
-        @Suppress("DEPRECATION")
-        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+
+        object : Thread(){
+            override fun run() {
+                try {
+                    sleep(2000)
+                    doubleBackToExitPressedOnce = false
+                } catch (e: Exception){
+                    Log.d(Constant.SPLASH_SCREEN_TAG, e.message.toString())
+                }
+            }
+        }.start()
+
+        supportActionBar?.hide()
     }
 }

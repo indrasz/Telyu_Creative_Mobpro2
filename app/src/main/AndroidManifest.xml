@@ -25,7 +25,7 @@
             android:name=".views.authscreen.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".views.authscreen.BaseActivity"
+            android:name=".utils.BaseActivity"
             android:exported="false" />
         <activity
             android:name=".views.authscreen.RegisterActivity"

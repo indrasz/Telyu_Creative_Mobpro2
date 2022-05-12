@@ -1,13 +1,13 @@
 package org.brainless.telyucreative.views.authscreen
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityLoginBinding
+import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.views.mainscreen.MainActivity
 
 class LoginActivity :  BaseActivity(), View.OnClickListener {
