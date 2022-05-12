@@ -22,6 +22,8 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
         binding.tvForgotPassword.setOnClickListener(this)
         binding.btnLogin.setOnClickListener(this)
         binding.tvRegisterOptionClick.setOnClickListener(this)
+
+        supportActionBar?.hide()
     }
 
     override fun onClick(v: View?) {

@@ -25,5 +25,7 @@ class MainActivity : AppCompatActivity() {
         ).build()
 //        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        supportActionBar?.hide()
     }
 }
