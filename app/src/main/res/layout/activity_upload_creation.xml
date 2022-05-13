@@ -24,7 +24,6 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
                 android:padding="12dp"
                 android:text="@string/upload_your_art_here"
                 style="@style/TextView.uploadCreationTitle"
@@ -35,8 +34,8 @@
                 android:id="@+id/fm_upload_karya"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="16dp"
+                android:background="#F6F9FF"
+                android:paddingVertical="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5">
@@ -45,6 +44,7 @@
                     android:id="@+id/iv_creation_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginHorizontal="32dp"
                     android:background="@drawable/bg_folder_upload"
                     android:scaleType="fitXY"/>
 
@@ -147,6 +147,35 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_category"
                 tools:ignore="LabelFor,RtlSymmetry" />
 
+            <TextView
+                android:id="@+id/tv_url_link"
+                style="@style/TextView.label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="32dp"
+                android:text="@string/url_link"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_category" />
+
+            <EditText
+                android:id="@+id/edt_url_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="32dp"
+                android:ems="10"
+                android:hint="@string/enter_your_creation_link"
+                android:background="@drawable/bg_input"
+                android:inputType="text"
+                style="@style/TextView.input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_url_link"
+                tools:ignore="LabelFor,RtlSymmetry,TextFields" />
+
             <Button
                 android:id="@+id/btn_upload_creation"
                 style="@style/TextView.buttonPrimary"
@@ -161,7 +190,7 @@
                 android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sp_category" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_url_link" />
 
             <TextView
                 android:id="@+id/btn_cancel_upload"

@@ -1,5 +1,6 @@
 package org.brainless.telyucreative.views.authscreen
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
@@ -19,6 +20,10 @@ class RegisterActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        setupActionBar()
+
+        supportActionBar?.hide()
 
         binding.btnRegister.setOnClickListener{
             registerUser()
@@ -102,4 +107,5 @@ class RegisterActivity : BaseActivity() {
         FirebaseAuth.getInstance().signOut()
         finish()
     }
+
 }

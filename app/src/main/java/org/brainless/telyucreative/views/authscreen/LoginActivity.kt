@@ -1,9 +1,11 @@
 package org.brainless.telyucreative.views.authscreen
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityLoginBinding
@@ -24,6 +26,8 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
         binding.tvRegisterOptionClick.setOnClickListener(this)
 
         supportActionBar?.hide()
+
+//        setupActionBar()
     }
 
     override fun onClick(v: View?) {
@@ -105,4 +109,6 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
                 }
         }
     }
+
+
 }
