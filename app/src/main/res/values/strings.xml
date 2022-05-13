@@ -59,4 +59,13 @@
     <string name="enter_your_creation_link">Enter your creation link</string>
     <string name="forgot_password_subtitle">Don’t worry ! it happens. Please enter the address associated with your account.</string>
     <string name="send">Send</string>
+    <string name="creative">Creative</string>
+    <string name="change_name">Change Name</string>
+    <string name="describe_who_you_are">Describe who you are</string>
+    <string name="your_name">Your Name</string>
+    <string name="your_social_media">Your social media</string>
+    <string name="hint_link_instagram">Instagram</string>
+    <string name="link_youtube">Youtube</string>
+    <string name="linkedin">Linkedin</string>
+    <string name="save">Save</string>
 </resources>

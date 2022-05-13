@@ -157,20 +157,20 @@
 
         <EditText
             android:id="@+id/edt_first_name"
+            style="@style/TextView.input"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="8dp"
-            android:paddingStart="12dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/first_name"
-            style="@style/TextView.input"
             android:background="@drawable/bg_input"
+            android:ems="10"
+            android:hint="@string/first_name"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
             app:layout_constraintEnd_toStartOf="@+id/edt_last_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            android:importantForAutofill="no"
             tools:ignore="LabelFor,RtlSymmetry" />
 
         <EditText

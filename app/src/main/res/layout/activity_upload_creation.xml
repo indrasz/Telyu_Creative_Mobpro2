@@ -12,8 +12,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,11 +24,11 @@
 
             <TextView
                 android:id="@+id/textView5"
+                style="@style/TextView.uploadCreationTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:text="@string/upload_your_art_here"
-                style="@style/TextView.uploadCreationTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,14 +48,14 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="32dp"
                     android:background="@drawable/bg_folder_upload"
-                    android:scaleType="fitXY"/>
+                    android:scaleType="fitXY" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_folder_upload"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"/>
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_folder_upload" />
 
             </FrameLayout>
 
@@ -62,25 +64,25 @@
                 style="@style/TextView.label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
                 android:text="@string/title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fm_upload_karya" />
 
             <EditText
                 android:id="@+id/edt_title"
+                style="@style/TextView.input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
+                android:background="@drawable/bg_input"
                 android:ems="10"
                 android:hint="@string/enter_the_title"
-                android:background="@drawable/bg_input"
                 android:inputType="text"
-                style="@style/TextView.input"
+                android:paddingStart="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title"
@@ -91,29 +93,29 @@
                 style="@style/TextView.label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
                 android:text="@string/description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_title" />
 
             <EditText
                 android:id="@+id/edt_desc"
+                style="@style/TextView.input"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:paddingStart="12dp"
-                android:paddingTop="10dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
+                android:background="@drawable/bg_textarea"
                 android:ems="10"
+                android:gravity="top"
+                android:hint="@string/describe_your_art"
+                android:inputType="text|textMultiLine"
                 android:lines="8"
                 android:maxLines="10"
-                android:hint="@string/describe_your_art"
-                android:background="@drawable/bg_textarea"
-                android:gravity="top"
-                android:inputType="text|textMultiLine"
-                style="@style/TextView.input"
+                android:paddingStart="12dp"
+                android:paddingTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_desc"
@@ -124,24 +126,24 @@
                 style="@style/TextView.label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
                 android:text="@string/category"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_desc" />
 
             <Spinner
                 android:id="@+id/sp_category"
+                style="@style/TextView.input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
-                android:ems="10"
                 android:background="@drawable/bg_spinner_category"
+                android:ems="10"
                 android:entries="@array/category_array"
-                style="@style/TextView.input"
+                android:paddingStart="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_category"
@@ -152,25 +154,25 @@
                 style="@style/TextView.label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
                 android:text="@string/url_link"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sp_category" />
 
             <EditText
                 android:id="@+id/edt_url_link"
+                style="@style/TextView.input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="12dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
+                android:background="@drawable/bg_input"
                 android:ems="10"
                 android:hint="@string/enter_your_creation_link"
-                android:background="@drawable/bg_input"
                 android:inputType="text"
-                style="@style/TextView.input"
+                android:paddingStart="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_url_link"
@@ -203,8 +205,8 @@
                 android:layout_marginEnd="32dp"
                 android:gravity="center"
                 android:text="@string/cancel"
-                android:textColor="@color/red"
                 android:textAllCaps="false"
+                android:textColor="@color/red"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_upload_creation" />
