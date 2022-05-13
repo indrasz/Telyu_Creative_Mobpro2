@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TelyuCreative">
         <activity
-            android:name=".views.mainscreen.account.upload.UploadKaryaActivity"
+            android:name=".views.mainscreen.account.upload.UploadCreationActivity"
             android:exported="false" />
         <activity
             android:name=".views.mainscreen.account.telyuaccount.TelyuAccountActivity"

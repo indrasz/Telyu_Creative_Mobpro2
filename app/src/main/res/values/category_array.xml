@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_array">
+        <item>Choose Category</item>
+        <item>Animasi</item>
+        <item>Backsound</item>
+        <item>Mainan</item>
+        <item>Aplikasi</item>
+        <item>Fotografi</item>
+        <item>Music</item>
+        <item>Desain</item>
+        <item>Art</item>
+    </string-array>
+</resources>

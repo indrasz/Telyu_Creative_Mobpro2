@@ -24,7 +24,6 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         window.insetsController?.hide(WindowInsets.Type.statusBars())
 
         object : Thread(){

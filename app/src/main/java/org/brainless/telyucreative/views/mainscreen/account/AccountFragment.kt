@@ -10,7 +10,7 @@ import org.brainless.telyucreative.databinding.FragmentAccountBinding
 import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
 import org.brainless.telyucreative.views.mainscreen.account.profile.EditProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.telyuaccount.TelyuAccountActivity
-import org.brainless.telyucreative.views.mainscreen.account.upload.UploadKaryaActivity
+import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 
 class AccountFragment : Fragment() {
 
@@ -19,7 +19,7 @@ class AccountFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentAccountBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -42,10 +42,10 @@ class AccountFragment : Fragment() {
                     )
                 )
             }
-            uploadWork.setOnClickListener {
+            uploadCreation.setOnClickListener {
                 startActivity(
                     Intent(
-                        activity, UploadKaryaActivity::class.java
+                        activity, UploadCreationActivity::class.java
                     )
                 )
             }
@@ -60,6 +60,4 @@ class AccountFragment : Fragment() {
         }
 
     }
-
-
 }

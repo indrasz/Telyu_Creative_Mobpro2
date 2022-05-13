@@ -12,7 +12,7 @@ import org.brainless.telyucreative.databinding.ActivityUploadKaryaBinding
 import org.brainless.telyucreative.views.mainscreen.MainActivity
 import org.brainless.telyucreative.views.mainscreen.account.AccountFragment
 
-class UploadKaryaActivity : AppCompatActivity() {
+class UploadCreationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUploadKaryaBinding
 
@@ -23,54 +23,22 @@ class UploadKaryaActivity : AppCompatActivity() {
 
         setupActionBar()
 
+        binding.btnCancelUpload.setOnClickListener{
+            onBackPressed()
+        }
+
     }
 
     private fun setupActionBar() {
-
-
-//        val actionBar = supportActionBar
-//        if (actionBar != null) {
-//            actionBar.title = ""
-//            actionBar.setDisplayHomeAsUpEnabled(true)
-//            actionBar.setHomeButtonEnabled(true)
-//            actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-//        }
         supportActionBar?.apply {
             title = ""
             setDisplayHomeAsUpEnabled(true)
             setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         }
-
-
-
     }
-
-
-//    override fun onBackPressed() {
-//        val navHost = supportFragmentManager.findFragmentById(R.id.navigation_profile)
-//        navHost?.let { navFragment ->
-//            navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
-//                if (fragment is AccountFragment) {
-//                    finish()
-//                } else {
-//                    super.onBackPressed()
-//                }
-//            }
-//        }
-//    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
     }
-
-//    override fun onContextItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            android.R.id.home -> {
-//                finish()
-//                return true
-//            }
-//        }
-//        return super.onContextItemSelected(item)
-//    }
 }
