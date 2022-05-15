@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_profile_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.mainscreen.account.profile.EditProfileActivity">
@@ -78,7 +79,7 @@
 
         <EditText
             android:id="@+id/edt_last_name"
-            android:layout_width="177dp"
+            android:layout_width="165dp"
             android:layout_height="45dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="32dp"
@@ -122,7 +123,36 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_email"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor,RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/tv_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/profession"
+            style="@style/TextView.label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+
+        <EditText
+            android:id="@+id/edt_profession"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="@string/enter_your_profession"
+            android:background="@drawable/bg_input"
+            android:inputType="text"
+            style="@style/TextView.input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_role"
+            tools:ignore="LabelFor,RtlSymmetry" />
 
         <TextView
             android:id="@+id/tv_desc"
@@ -133,7 +163,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/description"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_profession" />
 
         <EditText
             android:id="@+id/edt_desc"
@@ -176,7 +206,6 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
-            android:autofillHints="emailAddress"
             android:ems="10"
             android:hint="@string/hint_link_instagram"
             android:background="@drawable/bg_input"
@@ -195,7 +224,6 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
-            android:autofillHints="emailAddress"
             android:ems="10"
             android:hint="@string/link_youtube"
             android:background="@drawable/bg_input"
@@ -214,7 +242,6 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
-            android:autofillHints="emailAddress"
             android:ems="10"
             android:hint="@string/linkedin"
             android:background="@drawable/bg_input"
@@ -242,13 +269,13 @@
             app:layout_constraintTop_toBottomOf="@+id/edt_sosmed_linkedin" />
 
         <TextView
-            android:id="@+id/btn_cancel_upload_profile"
+            android:id="@+id/tv_cancel_upload_profile"
             style="@style/TextView.buttonPrimary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_margin"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="18dp"
             android:layout_marginEnd="32dp"
             android:gravity="center"
             android:text="@string/cancel"

@@ -1,16 +1,18 @@
 package org.brainless.telyucreative.views.authscreen
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityLoginBinding
+import org.brainless.telyucreative.model.User
+import org.brainless.telyucreative.datastore.FireStoreClass
 import org.brainless.telyucreative.utils.BaseActivity
+import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.mainscreen.MainActivity
+import org.brainless.telyucreative.views.mainscreen.account.profile.EditProfileActivity
 
 class LoginActivity :  BaseActivity(), View.OnClickListener {
 
@@ -27,7 +29,6 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
 
         supportActionBar?.hide()
 
-//        setupActionBar()
     }
 
     override fun onClick(v: View?) {
@@ -43,12 +44,12 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
                 }
 
                 R.id.btn_login -> {
-//                    logInRegisteredUser()
-                    startActivity(
-                        Intent(
-                            baseContext, MainActivity::class.java
-                        )
-                    )
+                    logInRegisteredUser()
+//                    startActivity(
+//                        Intent(
+//                            baseContext, MainActivity::class.java
+//                        )
+//                    )
                 }
 
                 R.id.tv_register_option_click -> {
@@ -90,25 +91,27 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
 
-                    // Hide the progress dialog
-                    hideProgressDialog()
-
                     if (task.isSuccessful) {
-
-                        startActivity(
-                            Intent(
-                                baseContext, MainActivity::class.java
-
-                            )
-                        )
-                        finish()
-
+                        FireStoreClass().getUserDetails(this@LoginActivity)
                     } else {
+                        hideProgressDialog()
                         showErrorSnackBar(task.exception!!.message.toString(), true)
                     }
                 }
         }
     }
 
+    fun userLoggedInSuccess(user: User) {
 
+        hideProgressDialog()
+
+        if (user.profileCompleted == 0) {
+            val intent = Intent(this@LoginActivity, EditProfileActivity::class.java)
+            intent.putExtra(Constant.EXTRA_USER_DETAILS, user)
+            startActivity(intent)
+        } else {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        }
+        finish()
+    }
 }

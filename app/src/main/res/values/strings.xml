@@ -22,6 +22,8 @@
     <string name="err_msg_enter_confirm_password">Please enter confirm password.</string>
     <string name="err_msg_password_and_confirm_password_mismatch">Password and confirm password does not match.</string>
     <string name="err_msg_agree_terms_and_condition">Please agree terms and condition.</string>
+    <string name="msg_profile_update_success">Your profile is updated successfully.</string>
+
 
     <string name="register_success">You are registered successfully.</string>
 
@@ -63,9 +65,11 @@
     <string name="change_name">Change Name</string>
     <string name="describe_who_you_are">Describe who you are</string>
     <string name="your_name">Your Name</string>
-    <string name="your_social_media">Your social media</string>
+    <string name="your_social_media">Your link social media</string>
     <string name="hint_link_instagram">Instagram</string>
     <string name="link_youtube">Youtube</string>
     <string name="linkedin">Linkedin</string>
     <string name="save">Save</string>
+    <string name="profession">Profession</string>
+    <string name="enter_your_profession">Enter your profession</string>
 </resources>

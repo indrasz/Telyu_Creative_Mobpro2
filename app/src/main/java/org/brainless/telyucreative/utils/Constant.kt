@@ -16,7 +16,7 @@ object Constant{
     const val ORDERS: String = "orders"
     const val SOLD_PRODUCTS: String = "sold_products"
 
-    const val MYSHOPPAL_PREFERENCES: String = "MyShopPalPrefs"
+    const val TELYUCREATIVE_PREFERENCES: String = "TelyuCreativePrefs"
     const val LOGGED_IN_USERNAME: String = "logged_in_username"
 
     // Intent extra constants.

@@ -1,6 +1,5 @@
 package org.brainless.telyucreative.views.authscreen
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
@@ -9,7 +8,7 @@ import com.google.firebase.auth.FirebaseUser
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityRegisterBinding
 import org.brainless.telyucreative.model.User
-import org.brainless.telyucreative.storage.FireStoreClass
+import org.brainless.telyucreative.datastore.FireStoreClass
 import org.brainless.telyucreative.utils.BaseActivity
 
 class RegisterActivity : BaseActivity() {

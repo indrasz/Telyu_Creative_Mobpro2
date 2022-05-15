@@ -10,7 +10,10 @@ data class User(
     val lastName: String = "",
     val email: String = "",
     val image: String = "",
-    val mobile: Long = 0,
-    val gender: String = "",
+    val profession : String = "",
+    val description : String = "",
+    val instagramLink : String = "",
+    val youtubeLink : String = "",
+    val linkedinLink : String = "",
     val profileCompleted: Int = 0
 ) : Parcelable
