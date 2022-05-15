@@ -23,11 +23,19 @@
     <string name="err_msg_password_and_confirm_password_mismatch">Password and confirm password does not match.</string>
     <string name="err_msg_agree_terms_and_condition">Please agree terms and condition.</string>
     <string name="msg_profile_update_success">Your profile is updated successfully.</string>
-
+    <string name="read_storage_permission_denied">Oops, you just denied the permission for storage. You can also allow it from settings.</string>
+    <string name="image_selection_failed">Image selection Failed!</string>
 
     <string name="register_success">You are registered successfully.</string>
 
     <string name="please_click_back_again_to_exit">Please click back again to exit.</string>
+
+    <string name="err_msg_enter_description">Please enter description.</string>
+    <string name="err_msg_enter_profession">Please enter your profession.</string>
+    <string name="err_msg_enter_link_insta">Please enter your Instagram username.</string>
+    <string name="err_msg_enter_link_yt">Please enter your Youtube Link.</string>
+    <string name="err_msg_enter_link_linkedin">Please enter your Linkedin Link.</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -14,7 +14,7 @@ import org.brainless.telyucreative.model.*
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.authscreen.LoginActivity
 import org.brainless.telyucreative.views.authscreen.RegisterActivity
-import org.brainless.telyucreative.views.mainscreen.account.profile.EditProfileActivity
+import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 
 class FireStoreClass {
 
@@ -72,6 +72,7 @@ class FireStoreClass {
                         activity.userLoggedInSuccess(user)
                     }
                 }
+
             }
             .addOnFailureListener { e ->
                 // Hide the progress dialog if there is any error. And print the error in log.
@@ -114,7 +115,7 @@ class FireStoreClass {
 
                 // Notify the success result.
                 when (activity) {
-                    is EditProfileActivity -> {
+                    is UserProfileActivity -> {
                         // Call a function of base activity for transferring the result to it.
                         activity.userProfileUpdateSuccess()
                     }
@@ -123,7 +124,7 @@ class FireStoreClass {
             .addOnFailureListener { e ->
 
                 when (activity) {
-                    is EditProfileActivity -> {
+                    is UserProfileActivity -> {
                         // Hide the progress dialog if there is any error. And print the error in log.
                         activity.hideProgressDialog()
                     }
@@ -164,7 +165,7 @@ class FireStoreClass {
 
                         // Here call a function of base activity for transferring the result to it.
                         when (activity) {
-                            is EditProfileActivity -> {
+                            is UserProfileActivity -> {
                                 activity.imageUploadSuccess(uri.toString())
                             }
 //
@@ -178,7 +179,7 @@ class FireStoreClass {
 
                 // Hide the progress dialog if there is any error. And print the error in log.
                 when (activity) {
-                    is EditProfileActivity -> {
+                    is UserProfileActivity -> {
                         activity.hideProgressDialog()
                     }
 

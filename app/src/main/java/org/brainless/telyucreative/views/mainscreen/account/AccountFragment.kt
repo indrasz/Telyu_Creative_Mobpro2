@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import org.brainless.telyucreative.databinding.FragmentAccountBinding
 import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
-import org.brainless.telyucreative.views.mainscreen.account.profile.EditProfileActivity
+import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.telyuaccount.TelyuAccountActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 
@@ -30,7 +30,7 @@ class AccountFragment : Fragment() {
             editProfile.setOnClickListener {
                 startActivity(
                     Intent(
-                        activity, EditProfileActivity::class.java
+                        activity, UserProfileActivity::class.java
                     )
                 )
             }

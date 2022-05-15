@@ -73,5 +73,9 @@
         <item name="android:textSize">28sp</item>
     </style>
 
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
+
 
 </resources>

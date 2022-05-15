@@ -12,7 +12,7 @@ import org.brainless.telyucreative.datastore.FireStoreClass
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.mainscreen.MainActivity
-import org.brainless.telyucreative.views.mainscreen.account.profile.EditProfileActivity
+import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 
 class LoginActivity :  BaseActivity(), View.OnClickListener {
 
@@ -106,7 +106,7 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
         hideProgressDialog()
 
         if (user.profileCompleted == 0) {
-            val intent = Intent(this@LoginActivity, EditProfileActivity::class.java)
+            val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
             intent.putExtra(Constant.EXTRA_USER_DETAILS, user)
             startActivity(intent)
         } else {

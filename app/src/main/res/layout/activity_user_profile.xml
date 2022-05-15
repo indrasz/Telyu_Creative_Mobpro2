@@ -5,7 +5,7 @@
     android:id="@+id/edit_profile_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.mainscreen.account.profile.EditProfileActivity">
+    tools:context=".views.mainscreen.account.profile.UserProfileActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_back"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -38,15 +38,17 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_user_profile_upload"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/ic_user_profile_input"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:shapeAppearanceOverlay="@style/Circular"/>
 
         <TextView
             android:id="@+id/textView"

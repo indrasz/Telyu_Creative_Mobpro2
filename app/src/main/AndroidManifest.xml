@@ -23,7 +23,7 @@
             android:name=".views.mainscreen.account.dashboard.DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".views.mainscreen.account.profile.EditProfileActivity"
+            android:name=".views.mainscreen.account.profile.UserProfileActivity"
             android:exported="false" />
         <activity
             android:name=".views.authscreen.ForgotPasswordActivity"
