@@ -20,8 +20,6 @@ class RegisterActivity : BaseActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setupActionBar()
-
         supportActionBar?.hide()
 
         binding.btnRegister.setOnClickListener{

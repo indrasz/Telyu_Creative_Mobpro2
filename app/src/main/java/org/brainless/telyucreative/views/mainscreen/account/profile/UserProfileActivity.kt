@@ -30,9 +30,10 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener{
     private lateinit var binding : ActivityUserProfileBinding
     private lateinit var mUserDetails: User
 
+    private lateinit var activityLauncher : ActivityResultLauncher<Intent>
+
     private var mSelectedImageFileUri: Uri? = null
     private var mUserProfileImageURL: String = ""
-    private lateinit var activityLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -277,9 +278,7 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener{
     }
 
     fun imageUploadSuccess(imageURL: String) {
-
         mUserProfileImageURL = imageURL
-
         updateUserProfileDetails()
     }
 }

@@ -80,4 +80,11 @@
     <string name="save">Save</string>
     <string name="profession">Profession</string>
     <string name="enter_your_profession">Enter your profession</string>
+    <string name="enter_your_full_name">Enter your Full Name</string>
+    <string name="nim">NIM</string>
+    <string name="enter_your_nim">Enter your NIM</string>
+    <string name="faculty">Faculty</string>
+    <string name="enter_your_faculty">Enter your Faculty</string>
+    <string name="study_program">Study Program</string>
+    <string name="enter_your_study_program">Enter your Study Program</string>
 </resources>
