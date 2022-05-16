@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
 import android.webkit.MimeTypeMap
+import androidx.activity.result.ActivityResultLauncher
 
 
 object Constant{
@@ -69,13 +70,16 @@ object Constant{
     /**
      * A function for user profile image selection from phone storage.
      */
-    fun showImageChooser(activity: Activity) {
+    fun showImageChooser(activity: ActivityResultLauncher<Intent>) {
         val galleryIntent = Intent(
             Intent.ACTION_PICK,
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         )
-        activity.startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST_CODE)
+
+        activity.launch(galleryIntent)
     }
+
+
 
     /**
      * A function to get the image file extension of the selected image.

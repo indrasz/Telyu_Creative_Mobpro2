@@ -4,7 +4,6 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
@@ -61,7 +60,7 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
                         )
                         == PackageManager.PERMISSION_GRANTED
                     ) {
-                        Constant.showImageChooser(this@UploadCreationActivity)
+//                        Constant.showImageChooser(this@UploadCreationActivity)
                     } else {
                         ActivityCompat.requestPermissions(
                             this,
