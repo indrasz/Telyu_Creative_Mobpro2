@@ -7,14 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import org.brainless.telyucreative.databinding.FragmentAccountBinding
+import org.brainless.telyucreative.datastore.FireStoreClass
+import org.brainless.telyucreative.model.User
+import org.brainless.telyucreative.utils.Constant
+import org.brainless.telyucreative.utils.GlideLoader
+import org.brainless.telyucreative.views.mainscreen.MainActivity
 import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.telyuaccount.TelyuAccountActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 
-class AccountFragment : Fragment() {
+class AccountFragment : Fragment(){
 
     private lateinit var binding : FragmentAccountBinding
+    private lateinit var mUserDetails: User
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,17 +28,21 @@ class AccountFragment : Fragment() {
     ): View {
 
         binding = FragmentAccountBinding.inflate(layoutInflater, container, false)
+
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getUserDetails()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
             editProfile.setOnClickListener {
-                startActivity(
-                    Intent(
-                        activity, UserProfileActivity::class.java
-                    )
-                )
+                val intent = Intent(activity, UserProfileActivity::class.java)
+                intent.putExtra(Constant.EXTRA_USER_DETAILS, mUserDetails)
+                startActivity(intent)
             }
 
             seeWork.setOnClickListener{
@@ -59,4 +69,18 @@ class AccountFragment : Fragment() {
 
         }
     }
+
+    private fun getUserDetails() {
+        FireStoreClass().getUserAccount(this@AccountFragment)
+    }
+
+    fun userDetailsSuccess(user: User) {
+
+        mUserDetails = user
+
+        activity?.let { GlideLoader(it).loadUserPicture(user.image, binding.ivUser) }
+
+        binding.tvUsername.text = user.lastName
+    }
+
 }

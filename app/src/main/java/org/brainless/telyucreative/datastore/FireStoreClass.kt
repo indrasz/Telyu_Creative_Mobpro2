@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -14,7 +15,9 @@ import org.brainless.telyucreative.model.*
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.authscreen.LoginActivity
 import org.brainless.telyucreative.views.authscreen.RegisterActivity
+import org.brainless.telyucreative.views.mainscreen.account.AccountFragment
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
+import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 
 class FireStoreClass {
 
@@ -68,6 +71,7 @@ class FireStoreClass {
                     }
                 }
 
+
             }
             .addOnFailureListener { e ->
                 when (activity) {
@@ -85,7 +89,7 @@ class FireStoreClass {
             }
     }
 
-    private fun getCurrentUserID(): String {
+    fun getCurrentUserID(): String {
         val currentUser = FirebaseAuth.getInstance().currentUser
 
         var currentUserID = ""
@@ -140,7 +144,6 @@ class FireStoreClass {
                     "Firebase Image URL",
                     taskSnapshot.metadata!!.reference!!.downloadUrl.toString()
                 )
-
                 taskSnapshot.metadata!!.reference!!.downloadUrl
                     .addOnSuccessListener { uri ->
                         Log.e("Downloadable Image URL", uri.toString())
@@ -148,6 +151,10 @@ class FireStoreClass {
                         // Here call a function of base activity for transferring the result to it.
                         when (activity) {
                             is UserProfileActivity -> {
+                                activity.imageUploadSuccess(uri.toString())
+                            }
+
+                            is UploadCreationActivity -> {
                                 activity.imageUploadSuccess(uri.toString())
                             }
 
@@ -160,12 +167,75 @@ class FireStoreClass {
                         activity.hideProgressDialog()
                     }
 
+                    is UploadCreationActivity -> {
+                        activity.hideProgressDialog()
+                    }
+
                 }
 
                 Log.e(
                     activity.javaClass.simpleName,
                     exception.message,
                     exception
+                )
+            }
+    }
+
+    fun getUserAccount(fragment: Fragment) {
+
+        mFireStore.collection(Constant.USERS)
+            .document(getCurrentUserID())
+            .get()
+            .addOnSuccessListener { document ->
+
+                Log.i(fragment.javaClass.simpleName, document.toString())
+
+                val user = document.toObject(User::class.java)!!
+
+                val sharedPreferences =
+                    fragment.activity?.getSharedPreferences(
+                        Constant.TELYUCREATIVE_PREFERENCES,
+                        Context.MODE_PRIVATE
+                    )
+
+                val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+                editor.putString(
+                    Constant.LOGGED_IN_USERNAME,
+                    user.lastName
+                )
+                editor.apply()
+
+                when (fragment) {
+                    is AccountFragment -> {
+                        fragment.userDetailsSuccess(user)
+                    }
+                }
+
+
+            }
+            .addOnFailureListener { e ->
+                Log.e(
+                    fragment.javaClass.simpleName,
+                    "Error while getting user details.",
+                    e
+                )
+            }
+    }
+
+    fun uploadProductDetails(activity: UploadCreationActivity, creationInfo: Creation) {
+
+        mFireStore.collection(Constant.CREATION)
+            .document()
+            .set(creationInfo, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.creationUploadSuccess()
+            }
+            .addOnFailureListener { e ->
+                activity.hideProgressDialog()
+                Log.e(
+                    activity.javaClass.simpleName,
+                    "Error while uploading the product details.",
+                    e
                 )
             }
     }

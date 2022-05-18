@@ -36,6 +36,15 @@
     <string name="err_msg_enter_link_yt">Please enter your Youtube Link.</string>
     <string name="err_msg_enter_link_linkedin">Please enter your Linkedin Link.</string>
 
+    <string name="err_msg_select_creation_image">Please select creation image.</string>
+    <string name="err_msg_enter_creation_title">Please enter creation title.</string>
+    <string name="err_msg_enter_creation_desc">Please enter creation description.</string>
+    <string name="err_msg_enter_creation_category">Please enter creation category.</string>
+    <string name="err_msg_enter_creatio_link">Please enter product link.</string>
+
+    <string name="creation_uploaded_success_message">Your creation is uploaded successfully.</string>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -87,4 +96,5 @@
     <string name="enter_your_faculty">Enter your Faculty</string>
     <string name="study_program">Study Program</string>
     <string name="enter_your_study_program">Enter your Study Program</string>
+    <string name="enter_your_category_creation">Enter your Category Creation</string>
 </resources>

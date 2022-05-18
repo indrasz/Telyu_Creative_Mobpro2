@@ -237,12 +237,12 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener{
 
         val instagramLink = binding.edtSosmedInsta.text.toString().trim { it <= ' ' }
         if (instagramLink != mUserDetails.instagramLink) {
-            userHashMap[Constant.INSTA_LINK] = instagramLink
+            userHashMap[Constant.INSTAGRAM_LINK] = instagramLink
         }
 
         val youtubeLink = binding.edtSosmedYoutube.text.toString().trim { it <= ' ' }
         if (youtubeLink != mUserDetails.youtubeLink) {
-            userHashMap[Constant.YT_LINK] = youtubeLink
+            userHashMap[Constant.YOUTUBE_LINK] = youtubeLink
         }
 
         val linkedinLink = binding.edtSosmedLinkedin.text.toString().trim { it <= ' ' }

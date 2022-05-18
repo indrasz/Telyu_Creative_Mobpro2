@@ -10,11 +10,10 @@ class GlideLoader(val context: Context) {
 
     fun loadUserPicture(image: Any, imageView: ImageView) {
         try {
-
             Glide
                 .with(context)
                 .load(image)
-                .centerCrop()
+                .circleCrop()
                 .placeholder(R.drawable.ic_user_profile)
                 .into(imageView)
         } catch (e: IOException) {
@@ -22,7 +21,7 @@ class GlideLoader(val context: Context) {
         }
     }
 
-    fun loadProductPicture(image: Any, imageView: ImageView) {
+    fun loadCreationPicture(image: Any, imageView: ImageView) {
         try {
             Glide
                 .with(context)

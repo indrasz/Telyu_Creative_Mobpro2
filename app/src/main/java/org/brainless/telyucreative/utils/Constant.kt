@@ -11,7 +11,7 @@ import androidx.activity.result.ActivityResultLauncher
 object Constant{
     const val SPLASH_SCREEN_TAG = "splash_screen"
     const val USERS: String = "users"
-    const val PRODUCTS: String = "products"
+    const val CREATION: String = "creation"
     const val CART_ITEMS: String = "cart_items"
     const val ADDRESSES: String = "addresses"
     const val ORDERS: String = "orders"
@@ -46,18 +46,18 @@ object Constant{
     // Firebase database field names
     const val PROFESSION: String = "profession"
     const val DESCRIPTION: String = "description"
-    const val INSTA_LINK: String = "instaLink"
-    const val YT_LINK: String = "ytLink"
+    const val INSTAGRAM_LINK: String = "instagramLink"
+    const val YOUTUBE_LINK: String = "youtubeLink"
     const val LINKEDIN_LINK: String = "linkedinLink"
     const val IMAGE: String = "image"
     const val COMPLETE_PROFILE: String = "profileCompleted"
     const val FIRST_NAME: String = "firstName"
     const val LAST_NAME: String = "lastName"
     const val USER_ID: String = "user_id"
-    const val PRODUCT_ID: String = "product_id"
+    const val CREATION_ID: String = "product_id"
 
     const val USER_PROFILE_IMAGE: String = "User_Profile_Image"
-    const val PRODUCT_IMAGE: String = "Product_Image"
+    const val CREATION_IMAGE: String = "Creation_Image"
 
     const val CART_QUANTITY: String = "cart_quantity"
 
