@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_folder_upload.xml" value="0.13" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_input.xml" value="0.1335" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_input_shape.xml" value="0.1675" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_spinner_category.xml" value="0.1335" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_textarea.xml" value="0.1335" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bottom_selector_item.xml" value="0.178" />
@@ -29,9 +30,10 @@
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/dialog_progress.xml" value="0.33" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_account.xml" value="0.2" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_category.xml" value="0.15715579710144928" />
-        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_search.xml" value="0.15715579710144928" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_popular_search.xml" value="0.23170731707317074" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/layout_toolbar.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>
