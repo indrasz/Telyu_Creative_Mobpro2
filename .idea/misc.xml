@@ -33,7 +33,9 @@
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_search.xml" value="0.15715579710144928" />
-        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_popular_search.xml" value="0.23170731707317074" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_second.xml" value="0.1" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_our_recommendation.xml" value="0.25" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_popular_search.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/layout_toolbar.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>

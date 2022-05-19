@@ -18,6 +18,7 @@ import org.brainless.telyucreative.views.authscreen.RegisterActivity
 import org.brainless.telyucreative.views.mainscreen.account.AccountFragment
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
+import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
 
 class FireStoreClass {
 
@@ -237,6 +238,34 @@ class FireStoreClass {
                     "Error while uploading the product details.",
                     e
                 )
+            }
+    }
+
+    fun getCreationList( fragment : HomeFragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constant.CREATION)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e(fragment.javaClass.simpleName, document.documents.toString())
+
+                val creationList: ArrayList<Creation> = ArrayList()
+
+                for (i in document.documents) {
+
+                    val creation = i.toObject(Creation::class.java)!!
+                    creation.creationId = i.id
+                    creationList.add(creation)
+                }
+
+                // Pass the success result to the base fragment.
+                fragment.successOurRecommendationItemsList(creationList)
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error which getting the dashboard items list.
+                fragment.hideProgressDialog()
+                Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
             }
     }
 
