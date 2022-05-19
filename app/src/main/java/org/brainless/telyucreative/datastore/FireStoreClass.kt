@@ -242,12 +242,10 @@ class FireStoreClass {
     }
 
     fun getCreationList( fragment : HomeFragment) {
-        // The collection name for PRODUCTS
         mFireStore.collection(Constant.CREATION)
-            .get() // Will get the documents snapshots.
+            .get()
             .addOnSuccessListener { document ->
 
-                // Here we get the list of boards in the form of documents.
                 Log.e(fragment.javaClass.simpleName, document.documents.toString())
 
                 val creationList: ArrayList<Creation> = ArrayList()
@@ -258,8 +256,6 @@ class FireStoreClass {
                     creation.creationId = i.id
                     creationList.add(creation)
                 }
-
-                // Pass the success result to the base fragment.
                 fragment.successOurRecommendationItemsList(creationList)
             }
             .addOnFailureListener { e ->

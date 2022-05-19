@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.databinding.FragmentAccountBinding
 import org.brainless.telyucreative.datastore.FireStoreClass
 import org.brainless.telyucreative.model.User
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
+import org.brainless.telyucreative.views.authscreen.LoginActivity
 import org.brainless.telyucreative.views.mainscreen.MainActivity
 import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
@@ -21,6 +23,7 @@ class AccountFragment : Fragment(){
 
     private lateinit var binding : FragmentAccountBinding
     private lateinit var mUserDetails: User
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +31,6 @@ class AccountFragment : Fragment(){
     ): View {
 
         binding = FragmentAccountBinding.inflate(layoutInflater, container, false)
-
         return binding.root
     }
 
@@ -38,6 +40,7 @@ class AccountFragment : Fragment(){
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        auth = FirebaseAuth.getInstance()
         binding.apply {
             editProfile.setOnClickListener {
                 val intent = Intent(activity, UserProfileActivity::class.java)
@@ -65,6 +68,14 @@ class AccountFragment : Fragment(){
                         activity, DashboardActivity::class.java
                     )
                 )
+            }
+
+            tvLogout.setOnClickListener{
+                auth.signOut()
+                Intent(activity, LoginActivity::class.java).also {
+                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(it)
+                }
             }
 
         }
