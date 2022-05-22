@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseUser
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityRegisterBinding
 import org.brainless.telyucreative.model.User
-import org.brainless.telyucreative.datastore.FireStoreClass
+import org.brainless.telyucreative.data.FireStoreClass
 import org.brainless.telyucreative.utils.BaseActivity
 
 class RegisterActivity : BaseActivity() {

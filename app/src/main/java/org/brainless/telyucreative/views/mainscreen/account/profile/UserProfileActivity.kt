@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityUserProfileBinding
-import org.brainless.telyucreative.datastore.FireStoreClass
+import org.brainless.telyucreative.data.FireStoreClass
 import org.brainless.telyucreative.model.User
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant

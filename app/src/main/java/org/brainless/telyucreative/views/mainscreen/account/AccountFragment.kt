@@ -8,12 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.databinding.FragmentAccountBinding
-import org.brainless.telyucreative.datastore.FireStoreClass
+import org.brainless.telyucreative.data.FireStoreClass
 import org.brainless.telyucreative.model.User
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
 import org.brainless.telyucreative.views.authscreen.LoginActivity
-import org.brainless.telyucreative.views.mainscreen.MainActivity
 import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.telyuaccount.TelyuAccountActivity

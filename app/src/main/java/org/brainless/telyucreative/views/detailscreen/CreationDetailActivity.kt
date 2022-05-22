@@ -6,7 +6,7 @@ import org.brainless.telyucreative.databinding.ActivityCreationDetailBinding
 
 class CreationDetailActivity : AppCompatActivity() {
 
-private lateinit var binding: ActivityCreationDetailBinding
+    private lateinit var binding: ActivityCreationDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

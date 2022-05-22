@@ -3,16 +3,15 @@ package org.brainless.telyucreative.views.mainscreen.home
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import org.brainless.telyucreative.R
+import org.brainless.telyucreative.data.FireStoreClass
 import org.brainless.telyucreative.databinding.FragmentHomeBinding
-import org.brainless.telyucreative.datastore.FireStoreClass
 import org.brainless.telyucreative.model.Category
 import org.brainless.telyucreative.model.Creation
 import org.brainless.telyucreative.utils.BaseFragment
@@ -29,6 +28,10 @@ class HomeFragment : BaseFragment() {
     private var arrayOfOurRecommendation = arrayListOf<Creation>()
     private lateinit var creation : Creation
 
+    private val viewModel: HomeViewModel by lazy {
+        ViewModelProvider(this)[HomeViewModel::class.java]
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,30 +42,30 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getCategoryData().observe(viewLifecycleOwner) {
+            popularSearchAdapter.setListDataCategory(it)
+        }
         popularSearchView()
+        successOurRecommendationItemsList()
+
+        //viewmodel
+        observeData()
+
     }
 
-    override fun onResume() {
-        super.onResume()
-        getOurRecommendationItemsList()
-    }
+//    override fun onResume() {
+//        super.onResume()
+//    }
 
-    private fun getOurRecommendationItemsList() {
-        showProgressDialog(resources.getString(R.string.please_wait))
-        FireStoreClass().getCreationList(this@HomeFragment)
-    }
+//    private fun getOurRecommendationItemsList() {
+//        showProgressDialog(resources.getString(R.string.please_wait))
+//        FireStoreClass().getCreationList(this@HomeFragment)
+//    }
 
     @SuppressLint("Recycle")
     private fun popularSearchView() {
-        val imageArray = resources.obtainTypedArray(R.array.category_image_array)
-        val nameArray = resources.getStringArray(R.array.category_name_array)
 
-        for (i in nameArray.indices) arrayOfPopularSearch.add(
-            Category(
-                image = imageArray.getResourceId(i, 0),
-                name = nameArray[i],
-            )
-        )
         popularSearchAdapter = PopularSearchAdapter(arrayOfPopularSearch) {
             Snackbar.make(
                 binding.root,
@@ -78,28 +81,50 @@ class HomeFragment : BaseFragment() {
         }
     }
 
+//    @SuppressLint("Recycle")
+//    fun successOurRecommendationItemsList(ourRecommendationItemsList: ArrayList<Creation>) {
+//        arrayOfOurRecommendation = ourRecommendationItemsList
+//        hideProgressDialog()
+//
+//        if (ourRecommendationItemsList.size > 0) {
+//
+//            ourRecommendationAdapter = OurRecommendationAdapter(arrayOfOurRecommendation) {
+//
+//                val intent = Intent(context, CreationDetailActivity::class.java)
+//                    intent.putExtra(Constant.EXTRA_CREATION_ID, creation.creationId)
+//                    intent.putExtra(Constant.EXTRA_CREATION_OWNER_ID, creation.userId)
+//                    startActivity(intent)
+//            }
+//
+//            with(binding.rvRecomendation){
+//                setHasFixedSize(true)
+//                layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
+//                adapter = ourRecommendationAdapter
+////                observeData()
+//            }
+//        }
+//    }
+
     @SuppressLint("Recycle")
-    fun successOurRecommendationItemsList(ourRecommendationItemsList: ArrayList<Creation>) {
-        arrayOfOurRecommendation = ourRecommendationItemsList
-        hideProgressDialog()
-
-        if (ourRecommendationItemsList.size > 0) {
-
-            ourRecommendationAdapter = OurRecommendationAdapter(arrayOfOurRecommendation) {
-
-                val intent = Intent(context, CreationDetailActivity::class.java)
-                    intent.putExtra(Constant.EXTRA_CREATION_ID, creation.creationId)
-                    intent.putExtra(Constant.EXTRA_CREATION_OWNER_ID, creation.userId)
-                    startActivity(intent)
-            }
-
-            with(binding.rvRecomendation){
-                setHasFixedSize(true)
-                layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
-                adapter = ourRecommendationAdapter
-
-            }
+    fun successOurRecommendationItemsList() {
+        ourRecommendationAdapter = OurRecommendationAdapter(arrayOfOurRecommendation){
+            val intent = Intent(context, CreationDetailActivity::class.java)
+            intent.putExtra(Constant.EXTRA_CREATION_ID, creation.creationId)
+            intent.putExtra(Constant.EXTRA_CREATION_OWNER_ID, creation.userId)
+            startActivity(intent)
         }
+        with(binding.rvRecomendation){
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
+            adapter = ourRecommendationAdapter
+
+        }
+
     }
 
+    private fun observeData(){
+        viewModel.initData().observe(viewLifecycleOwner) {
+            ourRecommendationAdapter.setListData(it)
+        }
+    }
 }

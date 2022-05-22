@@ -1,14 +1,25 @@
 package org.brainless.telyucreative.views.mainscreen.home.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.brainless.telyucreative.databinding.ItemPopularSearchBinding
 import org.brainless.telyucreative.model.Category
+import org.brainless.telyucreative.model.Creation
 
 class PopularSearchAdapter (var items: ArrayList<Category>, var handler: (Category) -> Unit) :
     RecyclerView.Adapter<PopularSearchAdapter.PopularSearchViewHolder>() {
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setListDataCategory(data : ArrayList<Category>){
+        items.clear()
+        items.addAll(data)
+        notifyDataSetChanged()
+
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PopularSearchViewHolder(
         ItemPopularSearchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -16,7 +27,10 @@ class PopularSearchAdapter (var items: ArrayList<Category>, var handler: (Catego
 
     override fun onBindViewHolder(holder: PopularSearchViewHolder, position: Int) = with(holder) {
         bind(items[position])
-        this.binding.root.setOnClickListener { handler(items[position]) }
+        this.binding.root.setOnClickListener {
+            handler(items[position])
+        }
+
     }
 
     override fun getItemCount() = items.size

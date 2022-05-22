@@ -1,4 +1,4 @@
-package org.brainless.telyucreative.datastore
+package org.brainless.telyucreative.data
 
 import android.app.Activity
 import android.content.Context
@@ -6,6 +6,8 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -19,6 +21,7 @@ import org.brainless.telyucreative.views.mainscreen.account.AccountFragment
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
+import java.lang.Exception
 
 class FireStoreClass {
 
@@ -241,28 +244,60 @@ class FireStoreClass {
             }
     }
 
-    fun getCreationList( fragment : HomeFragment) {
-        mFireStore.collection(Constant.CREATION)
-            .get()
-            .addOnSuccessListener { document ->
+//    fun getCreationList(fragment : HomeFragment) {
+//        mFireStore.collection(Constant.CREATION)
+//            .get()
+//            .addOnSuccessListener { document ->
+//
+//                Log.e(fragment.javaClass.simpleName, document.documents.toString())
+//
+//                val creationList: ArrayList<Creation> = ArrayList()
+//
+//                for (i in document.documents) {
+//
+//                    val creation = i.toObject(Creation::class.java)!!
+//                    creation.creationId = i.id
+//                    creationList.add(creation)
+//                }
+////                fragment.successOurRecommendationItemsList(creationList)
+//            }
+//            .addOnFailureListener { e ->
+//                // Hide the progress dialog if there is any error which getting the dashboard items list.
+//                fragment.hideProgressDialog()
+//                Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
+//            }
+//    }
 
-                Log.e(fragment.javaClass.simpleName, document.documents.toString())
+    fun getCreationData(): LiveData<ArrayList<Creation>>{
+        val fragment : Fragment = HomeFragment()
+        val creationData = MutableLiveData<ArrayList<Creation>>()
+        try {
+            mFireStore.collection(Constant.CREATION)
+                .get()
+                .addOnSuccessListener{ document ->
 
-                val creationList: ArrayList<Creation> = ArrayList()
+                    Log.e(fragment.javaClass.simpleName, document.documents.toString())
 
-                for (i in document.documents) {
+                    val creationList: ArrayList<Creation> = ArrayList()
 
-                    val creation = i.toObject(Creation::class.java)!!
-                    creation.creationId = i.id
-                    creationList.add(creation)
+                    for (i in document.documents) {
+
+                        val creation = i.toObject(Creation::class.java)!!
+                        creation.creationId = i.id
+                        creationList.add(creation)
+                    }
+
+                    creationData.value = creationList
                 }
-                fragment.successOurRecommendationItemsList(creationList)
-            }
-            .addOnFailureListener { e ->
-                // Hide the progress dialog if there is any error which getting the dashboard items list.
-                fragment.hideProgressDialog()
-                Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
-            }
+
+                .addOnFailureListener { e ->
+                    Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
+                }
+
+        } catch (e : Exception){
+            Log.d(Constant.ERROR_GET_DATA, "Failed get creation data")
+        }
+        return creationData
     }
 
 }

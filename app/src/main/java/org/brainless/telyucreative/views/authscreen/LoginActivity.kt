@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityLoginBinding
 import org.brainless.telyucreative.model.User
-import org.brainless.telyucreative.datastore.FireStoreClass
+import org.brainless.telyucreative.data.FireStoreClass
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.mainscreen.MainActivity
