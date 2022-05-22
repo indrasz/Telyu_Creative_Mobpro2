@@ -12,10 +12,6 @@ object Constant{
     const val SPLASH_SCREEN_TAG = "splash_screen"
     const val USERS: String = "users"
     const val CREATION: String = "creation"
-    const val CART_ITEMS: String = "cart_items"
-    const val ADDRESSES: String = "addresses"
-    const val ORDERS: String = "orders"
-    const val SOLD_PRODUCTS: String = "sold_products"
 
     const val TELYUCREATIVE_PREFERENCES: String = "TelyuCreativePrefs"
     const val LOGGED_IN_USERNAME: String = "logged_in_username"

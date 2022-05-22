@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import org.brainless.telyucreative.R
-import org.brainless.telyucreative.data.FireStoreClass
 import org.brainless.telyucreative.databinding.FragmentHomeBinding
 import org.brainless.telyucreative.model.Category
 import org.brainless.telyucreative.model.Creation
@@ -23,7 +21,7 @@ import org.brainless.telyucreative.views.mainscreen.home.adapters.PopularSearchA
 class HomeFragment : BaseFragment() {
     private lateinit var binding :FragmentHomeBinding
     private lateinit var popularSearchAdapter: PopularSearchAdapter
-    private lateinit var ourRecommendationAdapter: OurRecommendationAdapter
+    lateinit var ourRecommendationAdapter: OurRecommendationAdapter
     private val arrayOfPopularSearch = arrayListOf<Category>()
     private var arrayOfOurRecommendation = arrayListOf<Creation>()
     private lateinit var creation : Creation
@@ -42,10 +40,6 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel.getCategoryData().observe(viewLifecycleOwner) {
-            popularSearchAdapter.setListDataCategory(it)
-        }
         popularSearchView()
         successOurRecommendationItemsList()
 
@@ -108,10 +102,15 @@ class HomeFragment : BaseFragment() {
     @SuppressLint("Recycle")
     fun successOurRecommendationItemsList() {
         ourRecommendationAdapter = OurRecommendationAdapter(arrayOfOurRecommendation){
-            val intent = Intent(context, CreationDetailActivity::class.java)
-            intent.putExtra(Constant.EXTRA_CREATION_ID, creation.creationId)
-            intent.putExtra(Constant.EXTRA_CREATION_OWNER_ID, creation.userId)
-            startActivity(intent)
+
+            ourRecommendationAdapter.setOnClickListener( object : OurRecommendationAdapter.OnClickListener{
+                override fun onClick(position: Int, creation: Creation) {
+                    val intent = Intent(requireContext(), CreationDetailActivity::class.java)
+                    intent.putExtra(Constant.EXTRA_CREATION_ID, creation.creationId)
+                    startActivity(intent)
+                }
+            })
+
         }
         with(binding.rvRecomendation){
             setHasFixedSize(true)
@@ -125,6 +124,10 @@ class HomeFragment : BaseFragment() {
     private fun observeData(){
         viewModel.initData().observe(viewLifecycleOwner) {
             ourRecommendationAdapter.setListData(it)
+        }
+
+        viewModel.getCategoryData().observe(viewLifecycleOwner) {
+            popularSearchAdapter.setListDataCategory(it)
         }
     }
 }

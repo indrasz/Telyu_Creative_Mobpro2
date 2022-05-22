@@ -12,6 +12,8 @@ import org.brainless.telyucreative.model.Creation
 class OurRecommendationAdapter (private var items: ArrayList<Creation>, var handler: (Creation) -> Unit) :
     RecyclerView.Adapter<OurRecommendationAdapter.OurRecommendationViewHolder>() {
 
+    private var onClickListener: OnClickListener? = null
+
     @SuppressLint("NotifyDataSetChanged")
     fun setListData(data : ArrayList<Creation>){
         items.clear()
@@ -26,7 +28,12 @@ class OurRecommendationAdapter (private var items: ArrayList<Creation>, var hand
 
     override fun onBindViewHolder(holder: OurRecommendationViewHolder, position: Int) = with(holder) {
         bind(items[position])
-        this.binding.root.setOnClickListener { handler(items[position]) }
+        this.binding.root.setOnClickListener {
+            handler(items[position])
+            if (onClickListener != null) {
+                onClickListener!!.onClick(position, items[position])
+            }
+        }
     }
 
     override fun getItemCount() = items.size
@@ -44,50 +51,12 @@ class OurRecommendationAdapter (private var items: ArrayList<Creation>, var hand
             tvCategory.text = creation.category
         }
     }
-}
 
-//class OurRecommendationAdapter (
-//    var items: ArrayList<Creation>,
-//    val clickListener: OnClickListener,
-//) : RecyclerView.Adapter<OurRecommendationAdapter.OurRecommendationViewHolder>() {
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OurRecommendationViewHolder {
-//        val inflater = LayoutInflater.from(parent.context)
-//        val binding = ItemOurRecommendationBinding.inflate(inflater, parent, false)
-////        binding.favoriteButton
-//        return OurRecommendationViewHolder(binding)
-//    }
-//
-//    override fun onBindViewHolder(holder: OurRecommendationViewHolder, position: Int) {
-//        holder.bind(items[position])
-//    }
-//
-//    override fun getItemCount() = items.size
-//
-//    class OurRecommendationViewHolder(var binding: ItemOurRecommendationBinding) :
-//        RecyclerView.ViewHolder(binding.root) {
-//        fun bind(creation: Creation) = with(binding) {
-//            Glide.with(this.root)
-//                .load(creation.image)
-//                .into(ivPopularSerach)
-//            Glide.with(this.root)
-//                .load(R.drawable.ic_user_profile)
-//                .into(ivUserProfile)
-//            tvUsername.text = creation.userName
-//            tvCategory.text = creation.category
-//        }
-//    }
-//
-//    @SuppressLint("NotifyDataSetChanged")
-//    fun setListData(data : ArrayList<Creation>){
-////        data.clear()
-//        items.addAll(data)
-//        notifyDataSetChanged()
-//
-//    }
-//
-//    interface OnClickListener{
-//        fun onItemClciked(dataCreation : Creation)
-//        fun goToDetailCreation(creationId: Int)
-//    }
-//}
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
+    }
+    interface OnClickListener {
+
+        fun onClick(position: Int, creation: Creation)
+    }
+}

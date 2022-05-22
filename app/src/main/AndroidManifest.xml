@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.brainless.telyucreative" >
+    package="org.brainless.telyucreative">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -14,7 +14,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.TelyuCreative"
-        tools:ignore="LockedOrientationActivity" >
+        tools:ignore="LockedOrientationActivity">
         <activity
             android:name=".views.detailscreen.CreationDetailActivity"
             android:exported="false"
@@ -46,7 +46,7 @@
             android:exported="false" />
         <activity
             android:name=".views.splashscreen.SplashScreenActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

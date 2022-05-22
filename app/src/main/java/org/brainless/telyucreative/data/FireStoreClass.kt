@@ -17,10 +17,12 @@ import org.brainless.telyucreative.model.*
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.authscreen.LoginActivity
 import org.brainless.telyucreative.views.authscreen.RegisterActivity
+import org.brainless.telyucreative.views.detailscreen.CreationDetailActivity
 import org.brainless.telyucreative.views.mainscreen.account.AccountFragment
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
+import java.io.IOException
 import java.lang.Exception
 
 class FireStoreClass {
@@ -294,10 +296,32 @@ class FireStoreClass {
                     Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
                 }
 
-        } catch (e : Exception){
-            Log.d(Constant.ERROR_GET_DATA, "Failed get creation data")
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
         return creationData
     }
+
+    fun getCreationDetails(activity: CreationDetailActivity, creationId: String) {
+
+        mFireStore.collection(Constant.CREATION)
+            .document(creationId)
+            .get()
+            .addOnSuccessListener { document ->
+
+                Log.e(activity.javaClass.simpleName, document.toString())
+
+                val creation = document.toObject(Creation::class.java)!!
+
+                activity.creationDetailSuccess(creation)
+            }
+            .addOnFailureListener { e ->
+
+                activity.hideProgressDialog()
+
+                Log.e(activity.javaClass.simpleName, "Error while getting the creation details.", e)
+            }
+    }
+
 
 }

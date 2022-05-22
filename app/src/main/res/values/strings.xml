@@ -10,7 +10,7 @@
     <string name="register">Create Account</string>
     <string name="login_option">Already have account?</string>
     <string name="tv_login">Login</string>
-    <string name="please_wait">Please Wait</string>
+    <string name="please_wait">Please Wait&#8230;</string>
     <string name="register_option_click">Register Here</string>
     <string name="hint_email">Enter your email</string>
     <string name="hint_password">Enter Your Password</string>
@@ -96,6 +96,7 @@
     <string name="enter_your_study_program">Enter your Study Program</string>
     <string name="enter_your_category_creation">Enter your Category Creation</string>
     <string name="logo">logo</string>
+
     <string name="search_creation">Search Creation</string>
     <string name="temukan_karya_yang_luarbiasa_karya_anak_bangsa">Temukan Karya Yang Luarbiasa Karya Anak Bangsa</string>
     <string name="ketuk_untuk_lanjut">Ketuk untuk lanjut</string>

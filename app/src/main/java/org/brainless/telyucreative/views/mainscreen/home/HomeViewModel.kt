@@ -9,10 +9,14 @@ import org.brainless.telyucreative.model.Category
 import org.brainless.telyucreative.model.Creation
 
 class HomeViewModel : ViewModel() {
+
     private val fireStore = FireStoreClass()
 
     private val categoryData = MutableLiveData<ArrayList<Category>>()
-//    private val arrayOfPopularSearch = arrayListOf<Category>()
+
+    init {
+        categoryData.value = initCategoryData()
+    }
 
     fun initData() : LiveData<ArrayList<Creation>>{
         val mutableData = MutableLiveData<ArrayList<Creation>>()
@@ -22,10 +26,6 @@ class HomeViewModel : ViewModel() {
         }
 
         return mutableData
-    }
-
-    init {
-        categoryData.value = initCategoryData()
     }
 
     private fun initCategoryData(): ArrayList<Category> {
