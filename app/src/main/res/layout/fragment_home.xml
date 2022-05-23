@@ -68,7 +68,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_marginHorizontal="4dp"
+            android:layout_marginHorizontal="8dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_banner_home"
             android:orientation="vertical"
@@ -77,7 +77,9 @@
             app:layout_constraintTop_toBottomOf="@+id/search">
 
             <TextView
-                android:layout_width="150dp"
+                android:id="@+id/tv_banner"
+                style="@style/TextView.label"
+                android:layout_width="235dp"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:text="@string/temukan_karya_yang_luarbiasa_karya_anak_bangsa" />
@@ -87,7 +89,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
                 android:text="@string/ketuk_untuk_lanjut"
                 android:textAllCaps="false"
                 android:textSize="12sp" />
@@ -101,6 +102,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="18dp"
             android:text="@string/popular_search"
+            style="@style/TextView.titleSection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -124,6 +126,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/our_recommendation"
+            style="@style/TextView.titleSection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_popular_search" />
 
@@ -146,6 +149,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/other"
+            style="@style/TextView.titleSection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_recomendation" />
 

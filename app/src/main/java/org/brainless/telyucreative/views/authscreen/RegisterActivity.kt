@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseUser
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityRegisterBinding
 import org.brainless.telyucreative.model.User
-import org.brainless.telyucreative.data.FireStoreClass
+import org.brainless.telyucreative.data.FirestoreProvider
 import org.brainless.telyucreative.utils.BaseActivity
 
 class RegisterActivity : BaseActivity() {
@@ -81,7 +81,7 @@ class RegisterActivity : BaseActivity() {
                             binding.edtEmail.text.toString().trim { it <= ' ' }
                         )
 
-                        FireStoreClass().registerUser(this@RegisterActivity, user)
+                        FirestoreProvider().registerUser(this@RegisterActivity, user)
 
                     } else {
                         hideProgressDialog()

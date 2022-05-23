@@ -21,10 +21,9 @@ import org.brainless.telyucreative.views.mainscreen.home.adapters.PopularSearchA
 class HomeFragment : BaseFragment() {
     private lateinit var binding :FragmentHomeBinding
     private lateinit var popularSearchAdapter: PopularSearchAdapter
-    lateinit var ourRecommendationAdapter: OurRecommendationAdapter
+    private lateinit var ourRecommendationAdapter: OurRecommendationAdapter
     private val arrayOfPopularSearch = arrayListOf<Category>()
     private var arrayOfOurRecommendation = arrayListOf<Creation>()
-    private lateinit var creation : Creation
 
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this)[HomeViewModel::class.java]
@@ -48,15 +47,6 @@ class HomeFragment : BaseFragment() {
 
     }
 
-//    override fun onResume() {
-//        super.onResume()
-//    }
-
-//    private fun getOurRecommendationItemsList() {
-//        showProgressDialog(resources.getString(R.string.please_wait))
-//        FireStoreClass().getCreationList(this@HomeFragment)
-//    }
-
     @SuppressLint("Recycle")
     private fun popularSearchView() {
 
@@ -75,30 +65,6 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-//    @SuppressLint("Recycle")
-//    fun successOurRecommendationItemsList(ourRecommendationItemsList: ArrayList<Creation>) {
-//        arrayOfOurRecommendation = ourRecommendationItemsList
-//        hideProgressDialog()
-//
-//        if (ourRecommendationItemsList.size > 0) {
-//
-//            ourRecommendationAdapter = OurRecommendationAdapter(arrayOfOurRecommendation) {
-//
-//                val intent = Intent(context, CreationDetailActivity::class.java)
-//                    intent.putExtra(Constant.EXTRA_CREATION_ID, creation.creationId)
-//                    intent.putExtra(Constant.EXTRA_CREATION_OWNER_ID, creation.userId)
-//                    startActivity(intent)
-//            }
-//
-//            with(binding.rvRecomendation){
-//                setHasFixedSize(true)
-//                layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
-//                adapter = ourRecommendationAdapter
-////                observeData()
-//            }
-//        }
-//    }
-
     @SuppressLint("Recycle")
     fun successOurRecommendationItemsList() {
         ourRecommendationAdapter = OurRecommendationAdapter(arrayOfOurRecommendation){
@@ -107,6 +73,7 @@ class HomeFragment : BaseFragment() {
                 override fun onClick(position: Int, creation: Creation) {
                     val intent = Intent(requireContext(), CreationDetailActivity::class.java)
                     intent.putExtra(Constant.EXTRA_CREATION_ID, creation.creationId)
+                    intent.putExtra(Constant.EXTRA_CREATION_OWNER_ID, creation.userId)
                     startActivity(intent)
                 }
             })
@@ -118,7 +85,6 @@ class HomeFragment : BaseFragment() {
             adapter = ourRecommendationAdapter
 
         }
-
     }
 
     private fun observeData(){

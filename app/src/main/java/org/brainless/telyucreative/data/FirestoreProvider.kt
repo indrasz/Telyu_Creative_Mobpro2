@@ -25,7 +25,7 @@ import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
 import java.io.IOException
 import java.lang.Exception
 
-class FireStoreClass {
+class FirestoreProvider {
 
     private val mFireStore = FirebaseFirestore.getInstance()
 
@@ -187,48 +187,49 @@ class FireStoreClass {
             }
     }
 
-    fun getUserAccount(fragment: Fragment) {
+//    fun getUserAccount(fragment: Fragment) {
+//
+//        mFireStore.collection(Constant.USERS)
+//            .document(getCurrentUserID())
+//            .get()
+//            .addOnSuccessListener { document ->
+//
+//                Log.i(fragment.javaClass.simpleName, document.toString())
+//
+//                val user = document.toObject(User::class.java)!!
+//
+//                val sharedPreferences =
+//                    fragment.activity?.getSharedPreferences(
+//                        Constant.TELYUCREATIVE_PREFERENCES,
+//                        Context.MODE_PRIVATE
+//                    )
+//
+//                val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+//                editor.putString(
+//                    Constant.LOGGED_IN_USERNAME,
+//                    user.lastName
+//                )
+//                editor.apply()
+//
+//                when (fragment) {
+//                    is AccountFragment -> {
+//                        fragment.userDetailsSuccess(user)
+//                    }
+//                }
+//
+//
+//            }
+//            .addOnFailureListener { e ->
+//                Log.e(
+//                    fragment.javaClass.simpleName,
+//                    "Error while getting user details.",
+//                    e
+//                )
+//            }
+//    }
 
-        mFireStore.collection(Constant.USERS)
-            .document(getCurrentUserID())
-            .get()
-            .addOnSuccessListener { document ->
 
-                Log.i(fragment.javaClass.simpleName, document.toString())
-
-                val user = document.toObject(User::class.java)!!
-
-                val sharedPreferences =
-                    fragment.activity?.getSharedPreferences(
-                        Constant.TELYUCREATIVE_PREFERENCES,
-                        Context.MODE_PRIVATE
-                    )
-
-                val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-                editor.putString(
-                    Constant.LOGGED_IN_USERNAME,
-                    user.lastName
-                )
-                editor.apply()
-
-                when (fragment) {
-                    is AccountFragment -> {
-                        fragment.userDetailsSuccess(user)
-                    }
-                }
-
-
-            }
-            .addOnFailureListener { e ->
-                Log.e(
-                    fragment.javaClass.simpleName,
-                    "Error while getting user details.",
-                    e
-                )
-            }
-    }
-
-    fun uploadProductDetails(activity: UploadCreationActivity, creationInfo: Creation) {
+    fun uploadCreationDetails(activity: UploadCreationActivity, creationInfo: Creation) {
 
         mFireStore.collection(Constant.CREATION)
             .document()
@@ -270,6 +271,53 @@ class FireStoreClass {
 //            }
 //    }
 
+    fun getDataUserAccount(): LiveData<User?> {
+
+        val fragment : Fragment = AccountFragment()
+        val userData = MutableLiveData<User>()
+
+        try {
+            mFireStore.collection(Constant.USERS)
+                .document(getCurrentUserID())
+                .get()
+                .addOnSuccessListener { document ->
+
+                    Log.i(fragment.javaClass.simpleName, document.toString())
+
+                    val user = document.toObject(User::class.java)!!
+
+                    val sharedPreferences =
+                        fragment.activity?.getSharedPreferences(
+                            Constant.TELYUCREATIVE_PREFERENCES,
+                            Context.MODE_PRIVATE
+                        )
+
+                    val editor = sharedPreferences?.edit()
+                    editor?.putString(
+                        Constant.LOGGED_IN_USERNAME,
+                        user.lastName
+                    )
+                    editor?.apply()
+
+                    userData.value = user
+
+                }
+                .addOnFailureListener { e ->
+                    Log.e(
+                        fragment.javaClass.simpleName,
+                        "Error while getting user details.",
+                        e
+                    )
+                }
+
+        } catch (e : IOException){
+            e.printStackTrace()
+        }
+
+        return userData
+    }
+
+
     fun getCreationData(): LiveData<ArrayList<Creation>>{
         val fragment : Fragment = HomeFragment()
         val creationData = MutableLiveData<ArrayList<Creation>>()
@@ -293,12 +341,13 @@ class FireStoreClass {
                 }
 
                 .addOnFailureListener { e ->
-                    Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
+                    Log.e(fragment.javaClass.simpleName, "Error while getting data user account.", e)
                 }
 
         } catch (e: IOException) {
             e.printStackTrace()
         }
+
         return creationData
     }
 

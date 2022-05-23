@@ -98,7 +98,7 @@
     <string name="logo">logo</string>
 
     <string name="search_creation">Search Creation</string>
-    <string name="temukan_karya_yang_luarbiasa_karya_anak_bangsa">Temukan Karya Yang Luarbiasa Karya Anak Bangsa</string>
+    <string name="temukan_karya_yang_luarbiasa_karya_anak_bangsa">Temukan <font color="#B6252A">Karya</font> \nYang Luarbiasa  <font color="#B6252A">Karya</font> Anak <font color="#B6252A">Bangsa</font> </string>
     <string name="ketuk_untuk_lanjut">Ketuk untuk lanjut</string>
     <string name="popular_search">Popular Search</string>
     <string name="our_recommendation">Our Recommendation</string>

@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.databinding.FragmentAccountBinding
-import org.brainless.telyucreative.data.FireStoreClass
+import org.brainless.telyucreative.data.FirestoreProvider
 import org.brainless.telyucreative.model.User
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
@@ -17,12 +18,17 @@ import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardA
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.telyuaccount.TelyuAccountActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
+import org.brainless.telyucreative.views.mainscreen.home.HomeViewModel
 
 class AccountFragment : Fragment(){
 
     private lateinit var binding : FragmentAccountBinding
     private lateinit var mUserDetails: User
     private lateinit var auth: FirebaseAuth
+
+    private val viewModel: AccountViewModel by lazy {
+        ViewModelProvider(this)[AccountViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +39,12 @@ class AccountFragment : Fragment(){
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-        getUserDetails()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        getUserDetails()
+
         auth = FirebaseAuth.getInstance()
+
         binding.apply {
             editProfile.setOnClickListener {
                 val intent = Intent(activity, UserProfileActivity::class.java)
@@ -81,15 +86,18 @@ class AccountFragment : Fragment(){
     }
 
     private fun getUserDetails() {
-        FireStoreClass().getUserAccount(this@AccountFragment)
+        viewModel.initData().observe(requireActivity()){userDetailsSuccess(it)}
     }
 
-    fun userDetailsSuccess(user: User) {
+    private fun userDetailsSuccess(user: User?) {
 
-        mUserDetails = user
+        if (user == null) return
 
-        activity?.let { GlideLoader(it).loadUserPicture(user.image, binding.ivUser) }
-
+        user.also { mUserDetails = it }
+        activity?.let { GlideLoader(it).loadUserPicture(
+            image = user.image,
+            imageView = binding.ivUser
+        ) }
         binding.tvUsername.text = user.lastName
     }
 

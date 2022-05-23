@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityUserProfileBinding
-import org.brainless.telyucreative.data.FireStoreClass
+import org.brainless.telyucreative.data.FirestoreProvider
 import org.brainless.telyucreative.model.User
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
@@ -138,7 +138,7 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener{
                         showProgressDialog(resources.getString(R.string.please_wait))
 
                         if (mSelectedImageFileUri != null) {
-                            FireStoreClass().uploadImageToCloudStorage(
+                            FirestoreProvider().uploadImageToCloudStorage(
                                 this@UserProfileActivity,
                                 mSelectedImageFileUri,
                                 Constant.USER_PROFILE_IMAGE
@@ -257,7 +257,7 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener{
             userHashMap[Constant.COMPLETE_PROFILE] = 1
         }
 
-        FireStoreClass().updateUserProfileData(
+        FirestoreProvider().updateUserProfileData(
             this@UserProfileActivity,
             userHashMap
         )

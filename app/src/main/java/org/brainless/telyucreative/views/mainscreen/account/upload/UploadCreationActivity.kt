@@ -18,7 +18,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityUploadCreationBinding
-import org.brainless.telyucreative.data.FireStoreClass
+import org.brainless.telyucreative.data.FirestoreProvider
 import org.brainless.telyucreative.model.Creation
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
@@ -186,7 +186,7 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
 
         showProgressDialog(resources.getString(R.string.please_wait))
 
-        FireStoreClass().uploadImageToCloudStorage(
+        FirestoreProvider().uploadImageToCloudStorage(
             this@UploadCreationActivity,
             mSelectedImageFileUri,
             Constant.CREATION_IMAGE
@@ -211,7 +211,7 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
 
         // Here we get the text from editText and trim the space
         val creation = Creation(
-            FireStoreClass().getCurrentUserID(),
+            FirestoreProvider().getCurrentUserID(),
             username,
             binding.edtTitle.text.toString().trim { it <= ' ' },
             binding.edtDesc.text.toString().trim { it <= ' ' },
@@ -220,7 +220,7 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
             mProductImageURL
         )
 
-        FireStoreClass().uploadProductDetails(this@UploadCreationActivity, creation)
+        FirestoreProvider().uploadCreationDetails(this@UploadCreationActivity, creation)
     }
 
     fun creationUploadSuccess() {

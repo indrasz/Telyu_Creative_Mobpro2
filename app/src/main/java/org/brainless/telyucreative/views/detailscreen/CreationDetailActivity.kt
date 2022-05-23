@@ -1,11 +1,8 @@
 package org.brainless.telyucreative.views.detailscreen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.core.content.ContextCompat
 import org.brainless.telyucreative.R
-import org.brainless.telyucreative.data.FireStoreClass
+import org.brainless.telyucreative.data.FirestoreProvider
 import org.brainless.telyucreative.databinding.ActivityCreationDetailBinding
 import org.brainless.telyucreative.model.Creation
 import org.brainless.telyucreative.utils.BaseActivity
@@ -45,7 +42,7 @@ class CreationDetailActivity : BaseActivity() {
 
         mCreationDetail = creation
 
-        // Populate the product details in the UI.
+        // Populate the creation details in the UI.
         GlideLoader(this@CreationDetailActivity).loadCreationPicture(
             creation.image,
             binding.ivCreation
@@ -56,7 +53,7 @@ class CreationDetailActivity : BaseActivity() {
             tvCreationDesc.text = creation.description
         }
 
-        if (FireStoreClass().getCurrentUserID() == creation.userId) {
+        if (FirestoreProvider().getCurrentUserID() == creation.userId) {
             hideProgressDialog()
         }
     }
@@ -67,6 +64,6 @@ class CreationDetailActivity : BaseActivity() {
         showProgressDialog(resources.getString(R.string.please_wait))
 
         // Call the function of FirestoreClass to get the product details.
-        FireStoreClass().getCreationDetails(this@CreationDetailActivity, mCreationId)
+        FirestoreProvider().getCreationDetails(this@CreationDetailActivity, mCreationId)
     }
 }

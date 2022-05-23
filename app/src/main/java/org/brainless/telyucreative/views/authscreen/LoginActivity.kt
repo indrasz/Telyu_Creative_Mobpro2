@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityLoginBinding
 import org.brainless.telyucreative.model.User
-import org.brainless.telyucreative.data.FireStoreClass
+import org.brainless.telyucreative.data.FirestoreProvider
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.mainscreen.MainActivity
@@ -87,7 +87,7 @@ class LoginActivity :  BaseActivity(), View.OnClickListener {
                 .addOnCompleteListener { task ->
 
                     if (task.isSuccessful) {
-                        FireStoreClass().getUserDetails(this@LoginActivity)
+                        FirestoreProvider().getUserDetails(this@LoginActivity)
                     } else {
                         hideProgressDialog()
                         showErrorSnackBar(task.exception!!.message.toString(), true)

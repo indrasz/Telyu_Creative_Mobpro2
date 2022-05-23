@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.brainless.telyucreative.R
-import org.brainless.telyucreative.data.FireStoreClass
+import org.brainless.telyucreative.data.FirestoreProvider
 import org.brainless.telyucreative.model.Category
 import org.brainless.telyucreative.model.Creation
 
 class HomeViewModel : ViewModel() {
 
-    private val fireStore = FireStoreClass()
+    private val fireStore = FirestoreProvider()
 
     private val categoryData = MutableLiveData<ArrayList<Category>>()
 
