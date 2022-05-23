@@ -1,4 +1,4 @@
-package org.brainless.telyucreative.model
+package org.brainless.telyucreative.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

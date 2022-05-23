@@ -16,8 +16,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityUserProfileBinding
-import org.brainless.telyucreative.data.FirestoreProvider
-import org.brainless.telyucreative.model.User
+import org.brainless.telyucreative.data.remote.FirestoreProvider
+import org.brainless.telyucreative.data.model.User
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader

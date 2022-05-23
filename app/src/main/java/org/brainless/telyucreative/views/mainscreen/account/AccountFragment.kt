@@ -9,8 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.databinding.FragmentAccountBinding
-import org.brainless.telyucreative.data.FirestoreProvider
-import org.brainless.telyucreative.model.User
+import org.brainless.telyucreative.data.model.User
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
 import org.brainless.telyucreative.views.authscreen.LoginActivity
@@ -18,7 +17,6 @@ import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardA
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.telyuaccount.TelyuAccountActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
-import org.brainless.telyucreative.views.mainscreen.home.HomeViewModel
 
 class AccountFragment : Fragment(){
 
@@ -85,8 +83,8 @@ class AccountFragment : Fragment(){
         }
     }
 
-    private fun getUserDetails() {
-        viewModel.initData().observe(requireActivity()){userDetailsSuccess(it)}
+    private fun getUserDetails() = viewModel.initData().observe(requireActivity()) {
+        userDetailsSuccess(it)
     }
 
     private fun userDetailsSuccess(user: User?) {

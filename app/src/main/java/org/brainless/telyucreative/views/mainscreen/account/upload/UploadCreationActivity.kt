@@ -18,8 +18,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityUploadCreationBinding
-import org.brainless.telyucreative.data.FirestoreProvider
-import org.brainless.telyucreative.model.Creation
+import org.brainless.telyucreative.data.remote.FirestoreProvider
+import org.brainless.telyucreative.data.model.Creation
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader

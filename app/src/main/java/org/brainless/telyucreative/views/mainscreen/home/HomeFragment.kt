@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import org.brainless.telyucreative.databinding.FragmentHomeBinding
-import org.brainless.telyucreative.model.Category
-import org.brainless.telyucreative.model.Creation
+import org.brainless.telyucreative.data.model.Category
+import org.brainless.telyucreative.data.model.Creation
 import org.brainless.telyucreative.utils.BaseFragment
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.detailscreen.CreationDetailActivity

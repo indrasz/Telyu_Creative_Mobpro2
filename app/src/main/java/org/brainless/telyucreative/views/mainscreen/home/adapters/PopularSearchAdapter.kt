@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.brainless.telyucreative.databinding.ItemPopularSearchBinding
-import org.brainless.telyucreative.model.Category
-import org.brainless.telyucreative.model.Creation
+import org.brainless.telyucreative.data.model.Category
 
 class PopularSearchAdapter (var items: ArrayList<Category>, var handler: (Category) -> Unit) :
     RecyclerView.Adapter<PopularSearchAdapter.PopularSearchViewHolder>() {

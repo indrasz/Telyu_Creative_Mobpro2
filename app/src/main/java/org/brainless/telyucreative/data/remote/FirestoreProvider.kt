@@ -1,4 +1,4 @@
-package org.brainless.telyucreative.data
+package org.brainless.telyucreative.data.remote
 
 import android.app.Activity
 import android.content.Context
@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import org.brainless.telyucreative.model.*
+import org.brainless.telyucreative.data.model.*
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.authscreen.LoginActivity
 import org.brainless.telyucreative.views.authscreen.RegisterActivity
@@ -23,7 +23,6 @@ import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileA
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
 import java.io.IOException
-import java.lang.Exception
 
 class FirestoreProvider {
 
@@ -187,48 +186,6 @@ class FirestoreProvider {
             }
     }
 
-//    fun getUserAccount(fragment: Fragment) {
-//
-//        mFireStore.collection(Constant.USERS)
-//            .document(getCurrentUserID())
-//            .get()
-//            .addOnSuccessListener { document ->
-//
-//                Log.i(fragment.javaClass.simpleName, document.toString())
-//
-//                val user = document.toObject(User::class.java)!!
-//
-//                val sharedPreferences =
-//                    fragment.activity?.getSharedPreferences(
-//                        Constant.TELYUCREATIVE_PREFERENCES,
-//                        Context.MODE_PRIVATE
-//                    )
-//
-//                val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-//                editor.putString(
-//                    Constant.LOGGED_IN_USERNAME,
-//                    user.lastName
-//                )
-//                editor.apply()
-//
-//                when (fragment) {
-//                    is AccountFragment -> {
-//                        fragment.userDetailsSuccess(user)
-//                    }
-//                }
-//
-//
-//            }
-//            .addOnFailureListener { e ->
-//                Log.e(
-//                    fragment.javaClass.simpleName,
-//                    "Error while getting user details.",
-//                    e
-//                )
-//            }
-//    }
-
-
     fun uploadCreationDetails(activity: UploadCreationActivity, creationInfo: Creation) {
 
         mFireStore.collection(Constant.CREATION)
@@ -246,30 +203,6 @@ class FirestoreProvider {
                 )
             }
     }
-
-//    fun getCreationList(fragment : HomeFragment) {
-//        mFireStore.collection(Constant.CREATION)
-//            .get()
-//            .addOnSuccessListener { document ->
-//
-//                Log.e(fragment.javaClass.simpleName, document.documents.toString())
-//
-//                val creationList: ArrayList<Creation> = ArrayList()
-//
-//                for (i in document.documents) {
-//
-//                    val creation = i.toObject(Creation::class.java)!!
-//                    creation.creationId = i.id
-//                    creationList.add(creation)
-//                }
-////                fragment.successOurRecommendationItemsList(creationList)
-//            }
-//            .addOnFailureListener { e ->
-//                // Hide the progress dialog if there is any error which getting the dashboard items list.
-//                fragment.hideProgressDialog()
-//                Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
-//            }
-//    }
 
     fun getDataUserAccount(): LiveData<User?> {
 

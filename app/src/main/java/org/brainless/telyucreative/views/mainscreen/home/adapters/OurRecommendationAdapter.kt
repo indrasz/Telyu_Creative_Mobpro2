@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ItemOurRecommendationBinding
-import org.brainless.telyucreative.model.Creation
+import org.brainless.telyucreative.data.model.Creation
 
 class OurRecommendationAdapter (private var items: ArrayList<Creation>, var handler: (Creation) -> Unit) :
     RecyclerView.Adapter<OurRecommendationAdapter.OurRecommendationViewHolder>() {
