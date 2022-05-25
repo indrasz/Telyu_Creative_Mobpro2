@@ -31,7 +31,7 @@ class OurRecommendationAdapter (private var items: ArrayList<Creation>, var hand
         this.binding.root.setOnClickListener {
             handler(items[position])
             if (onClickListener != null) {
-                onClickListener!!.onClick(position, items[position])
+                onClickListener?.onClick(position, items[position])
             }
         }
     }
@@ -56,7 +56,6 @@ class OurRecommendationAdapter (private var items: ArrayList<Creation>, var hand
         this.onClickListener = onClickListener
     }
     interface OnClickListener {
-
         fun onClick(position: Int, creation: Creation)
     }
 }

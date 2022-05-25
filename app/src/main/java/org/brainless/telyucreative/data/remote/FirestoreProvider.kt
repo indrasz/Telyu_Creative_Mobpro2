@@ -22,6 +22,7 @@ import org.brainless.telyucreative.views.mainscreen.account.AccountFragment
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
+import org.brainless.telyucreative.views.mainscreen.save.SaveFragment
 import java.io.IOException
 
 class FirestoreProvider {
@@ -228,7 +229,7 @@ class FirestoreProvider {
                     val editor = sharedPreferences?.edit()
                     editor?.putString(
                         Constant.LOGGED_IN_USERNAME,
-                        user.lastName
+                        user.firstName
                     )
                     editor?.apply()
 
@@ -250,10 +251,10 @@ class FirestoreProvider {
         return userData
     }
 
-
     fun getCreationData(): LiveData<ArrayList<Creation>>{
         val fragment : Fragment = HomeFragment()
         val creationData = MutableLiveData<ArrayList<Creation>>()
+
         try {
             mFireStore.collection(Constant.CREATION)
                 .get()
@@ -304,6 +305,129 @@ class FirestoreProvider {
                 Log.e(activity.javaClass.simpleName, "Error while getting the creation details.", e)
             }
     }
+
+    fun addFavoriteCreation (activity: CreationDetailActivity, favoriteCreation: Favorite) {
+
+        mFireStore.collection(Constant.FAVORITE)
+            .document()
+            .set(favoriteCreation, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.creationSuccessAddToFavorite()
+            }
+            .addOnFailureListener { e ->
+                activity.hideProgressDialog()
+                Log.e(
+                    activity.javaClass.simpleName,
+                    "Error while uploading the product details.",
+                    e
+                )
+            }
+    }
+
+    fun checkIfCreationExistInFavorite(activity: CreationDetailActivity, creationId: String) {
+
+        mFireStore.collection(Constant.FAVORITE)
+            .whereEqualTo(Constant.USER_ID, getCurrentUserID())
+            .whereEqualTo(Constant.CREATION_ID, creationId)
+            .get()
+            .addOnSuccessListener { document ->
+
+                Log.e(activity.javaClass.simpleName, document.documents.toString())
+
+                if (document.documents.size > 0) {
+                    activity.creationExistsInFavorite()
+                } else {
+                    activity.hideProgressDialog()
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is an error.
+                activity.hideProgressDialog()
+
+                Log.e(
+                    activity.javaClass.simpleName,
+                    "Error while checking the existing favorite list.",
+                    e
+                )
+            }
+    }
+
+//    fun getFavoriteList(fragment: Fragment) {
+//        // The collection name for PRODUCTS
+//        mFireStore.collection(Constant.FAVORITE)
+//            .whereEqualTo(Constant.USER_ID, getCurrentUserID())
+//            .get() // Will get the documents snapshots.
+//            .addOnSuccessListener { document ->
+//
+//                // Here we get the list of cart items in the form of documents.
+//                Log.e(fragment.javaClass.simpleName, document.documents.toString())
+//
+//                // Here we have created a new instance for Cart Items ArrayList.
+//                val list: ArrayList<Favorite> = ArrayList()
+//
+//                // A for loop as per the list of documents to convert them into Cart Items ArrayList.
+//                for (i in document.documents) {
+//
+//                    val favorite = i.toObject(Favorite::class.java)!!
+//                    favorite.favoriteId = i.id
+//
+//                    list.add(favorite)
+//                }
+//
+//                when (fragment) {
+//                    is SaveFragment -> {
+////                        fragment.successCartItemsList(list)
+//                    }
+//                }
+//            }
+//            .addOnFailureListener { e ->
+//                // Hide the progress dialog if there is an error based on the activity instance.
+//                when (fragment) {
+//                    is SaveFragment -> {
+////                        fragment.successCartItemsList(list)
+//                    }
+//                }
+//
+//                Log.e(fragment.javaClass.simpleName, "Error while getting the favorite list items.", e)
+//            }
+//    }
+
+    fun getFavoriteList(): LiveData<ArrayList<Favorite>>{
+        val fragment : Fragment = SaveFragment()
+        val favoriteData = MutableLiveData<ArrayList<Favorite>>()
+
+        try {
+            mFireStore.collection(Constant.FAVORITE)
+                .whereEqualTo(Constant.USER_ID, getCurrentUserID())
+                .get()
+                .addOnSuccessListener{ document ->
+
+                    Log.e(fragment.javaClass.simpleName, document.documents.toString())
+
+                    val list: ArrayList<Favorite> = ArrayList()
+
+                    for (i in document.documents) {
+
+                        val favorite = i.toObject(Favorite::class.java)!!
+                        favorite.favoriteId = i.id
+
+                        list.add(favorite)
+                    }
+
+                    favoriteData.value = list
+                }
+
+                .addOnFailureListener { e ->
+                    Log.e(fragment.javaClass.simpleName, "Error while getting favorite list items.", e)
+                }
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return favoriteData
+    }
+
 
 
 }

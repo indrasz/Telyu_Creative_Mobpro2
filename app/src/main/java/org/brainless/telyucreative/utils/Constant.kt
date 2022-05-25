@@ -12,6 +12,8 @@ object Constant{
     const val SPLASH_SCREEN_TAG = "splash_screen"
     const val USERS: String = "users"
     const val CREATION: String = "creation"
+    const val FAVORITE: String = "favorite"
+    const val FAVORITE_ITEM: String = "favorite_item"
 
     const val TELYUCREATIVE_PREFERENCES: String = "TelyuCreativePrefs"
     const val LOGGED_IN_USERNAME: String = "logged_in_username"
@@ -51,8 +53,8 @@ object Constant{
     const val COMPLETE_PROFILE: String = "profileCompleted"
     const val FIRST_NAME: String = "firstName"
     const val LAST_NAME: String = "lastName"
-    const val USER_ID: String = "user_id"
-    const val CREATION_ID: String = "product_id"
+    const val USER_ID: String = "userId"
+    const val CREATION_ID: String = "creationId"
 
     const val USER_PROFILE_IMAGE: String = "User_Profile_Image"
     const val CREATION_IMAGE: String = "Creation_Image"

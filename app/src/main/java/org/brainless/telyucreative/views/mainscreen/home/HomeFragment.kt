@@ -19,6 +19,7 @@ import org.brainless.telyucreative.views.mainscreen.home.adapters.OurRecommendat
 import org.brainless.telyucreative.views.mainscreen.home.adapters.PopularSearchAdapter
 
 class HomeFragment : BaseFragment() {
+
     private lateinit var binding :FragmentHomeBinding
     private lateinit var popularSearchAdapter: PopularSearchAdapter
     private lateinit var ourRecommendationAdapter: OurRecommendationAdapter

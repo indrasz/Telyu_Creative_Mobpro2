@@ -96,7 +96,7 @@ class AccountFragment : Fragment(){
             image = user.image,
             imageView = binding.ivUser
         ) }
-        binding.tvUsername.text = user.lastName
+        binding.tvUsername.text = user.firstName
     }
 
 }
