@@ -49,6 +49,54 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+        <LinearLayout
+            android:id="@+id/frame_empty_favorit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/bg_empty_favorite" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_gravity="center"
+                style="@style/TextView.titleSection"
+                android:text="@string/belum_ada_karya_yang_kamu_pilih"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="24dp"
+                style="@style/TextView.input"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="@string/belum_ada_karya_yang_kamu_masukan_kedalam_wishlist_silahkan_eksplore_dan_temukan_karya_anak_bangsa_yang_menginspirasimu"/>
+
+            <Button
+                android:id="@+id/btn_login"
+                style="@style/TextView.buttonPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="@string/eksplore"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

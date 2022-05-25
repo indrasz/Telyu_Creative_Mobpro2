@@ -18,14 +18,18 @@ class SaveAdapter (private var items: ArrayList<Favorite>, var handler: (Favorit
 
     @SuppressLint("NotifyDataSetChanged")
     fun setListData(data : ArrayList<Favorite>){
+        items.clear()
         items.addAll(data)
         notifyDataSetChanged()
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = SaveViewHolder(
-        ItemSaveBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : SaveViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemSaveBinding.inflate(inflater, parent, false)
+        return SaveViewHolder(binding)
+    }
+
 
     override fun onBindViewHolder(holder: SaveViewHolder, position: Int) = with(holder) {
         bind(items[position])
@@ -35,18 +39,26 @@ class SaveAdapter (private var items: ArrayList<Favorite>, var handler: (Favorit
                 onClickListener!!.onClick(position, items[position])
             }
         }
+        this.binding.ivDelete.setOnClickListener {
+            handler(items[position])
+            if (onClickListener != null) {
+                onClickListener!!.onDelete(position, items[position])
+            }
+        }
     }
 
     override fun getItemCount() = items.size
 
-    class SaveViewHolder(var binding: ItemSaveBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class SaveViewHolder(
+        var binding: ItemSaveBinding,
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(favorite: Favorite) = with(binding) {
             Glide.with(this.root)
                 .load(favorite.image)
                 .into(ivFavorite)
             tvTitleCreation.text = favorite.title
             tvCategory.text = favorite.category
+
         }
     }
 
@@ -54,7 +66,7 @@ class SaveAdapter (private var items: ArrayList<Favorite>, var handler: (Favorit
         this.onClickListener = onClickListener
     }
     interface OnClickListener {
-
         fun onClick(position: Int, favorite: Favorite)
+        fun onDelete(position: Int, favorite: Favorite)
     }
 }

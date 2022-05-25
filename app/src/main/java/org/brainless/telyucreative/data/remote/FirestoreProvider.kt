@@ -415,6 +415,7 @@ class FirestoreProvider {
                     }
 
                     favoriteData.value = list
+
                 }
 
                 .addOnFailureListener { e ->
@@ -428,6 +429,62 @@ class FirestoreProvider {
         return favoriteData
     }
 
+    fun checkEmptyFavorite(fragment: SaveFragment) {
 
+        mFireStore.collection(Constant.FAVORITE)
+            .whereEqualTo(Constant.USER_ID, getCurrentUserID())
+            .get()
+            .addOnSuccessListener { document ->
+
+                Log.e(fragment.javaClass.simpleName, document.documents.toString())
+
+                if (document.documents.size > 0) {
+                    fragment.ifFavoriteListIsEmpty()
+                } else {
+                    fragment.hideProgressDialog()
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is an error.
+                fragment.hideProgressDialog()
+
+                Log.e(
+                    fragment.javaClass.simpleName,
+                    "Error while checking the existing favorite list.",
+                    e
+                )
+            }
+    }
+
+    fun removeItemFromFavorite(fragment: Fragment, favoriteId: String) {
+
+        // Cart items collection name
+        mFireStore.collection(Constant.FAVORITE)
+            .document(favoriteId) // cart id
+            .delete()
+            .addOnSuccessListener {
+
+                // Notify the success result of the removed cart item from the list to the base class.
+                when (fragment) {
+                    is SaveFragment -> {
+                        fragment.itemRemovedSuccess()
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+
+                // Hide the progress dialog if there is any error.
+                when (fragment) {
+                    is SaveFragment -> {
+                        fragment.hideProgressDialog()
+                    }
+                }
+                Log.e(
+                    fragment.javaClass.simpleName,
+                    "Error while removing the item from the cart list.",
+                    e
+                )
+            }
+    }
 
 }

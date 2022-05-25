@@ -44,6 +44,8 @@
 
     <string name="creation_uploaded_success_message">Your creation is uploaded successfully.</string>
     <string name="creation_add_favorite_success_message">successfully add this creation to favorite .</string>
+    <string name="msg_item_removed_successfully">Item removed successfully.</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->
