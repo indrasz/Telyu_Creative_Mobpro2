@@ -19,7 +19,7 @@
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout-v28/activity_edit_profile.xml" value="0.18795289855072464" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_auth.xml" value="0.15307971014492755" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_base.xml" value="0.15715579710144928" />
-        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_creation_detail.xml" value="0.6299212598425197" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_creation_detail.xml" value="0.33" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_dashboard.xml" value="0.16893115942028986" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_forgot_password.xml" value="0.22" />
@@ -30,7 +30,7 @@
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_telyu_account.xml" value="0.2813186813186813" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_upload_creation.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_upload_karya.xml" value="0.33" />
-        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_user_profile.xml" value="0.18795289855072464" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/dialog_progress.xml" value="0.33" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_account.xml" value="0.2" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_category.xml" value="0.15715579710144928" />
@@ -42,6 +42,7 @@
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_our_recommendation.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_popular_search.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_save.xml" value="0.22" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_search.xml" value="0.1633176571184267" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/layout_toolbar.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>

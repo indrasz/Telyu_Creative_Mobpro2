@@ -77,7 +77,6 @@ class FirestoreProvider {
                     }
                 }
 
-
             }
             .addOnFailureListener { e ->
                 when (activity) {
@@ -94,6 +93,28 @@ class FirestoreProvider {
                 )
             }
     }
+//
+//    fun getUser(activity: UploadCreationActivity, userId: String) {
+//
+//        mFireStore.collection(Constant.USERS)
+//            .document(userId)
+//            .get()
+//            .addOnSuccessListener { document ->
+//
+//                Log.e(activity.javaClass.simpleName, document.toString())
+//
+//                val user = document.toObject(User::class.java)!!
+//
+//                activity.succesGetUserDetail(user)
+//            }
+//            .addOnFailureListener { e ->
+//
+//                activity.hideProgressDialog()
+//
+//                Log.e(activity.javaClass.simpleName, "Error while getting the creation details.", e)
+//            }
+//    }
+
 
     fun getCurrentUserID(): String {
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -351,46 +372,6 @@ class FirestoreProvider {
                 )
             }
     }
-
-//    fun getFavoriteList(fragment: Fragment) {
-//        // The collection name for PRODUCTS
-//        mFireStore.collection(Constant.FAVORITE)
-//            .whereEqualTo(Constant.USER_ID, getCurrentUserID())
-//            .get() // Will get the documents snapshots.
-//            .addOnSuccessListener { document ->
-//
-//                // Here we get the list of cart items in the form of documents.
-//                Log.e(fragment.javaClass.simpleName, document.documents.toString())
-//
-//                // Here we have created a new instance for Cart Items ArrayList.
-//                val list: ArrayList<Favorite> = ArrayList()
-//
-//                // A for loop as per the list of documents to convert them into Cart Items ArrayList.
-//                for (i in document.documents) {
-//
-//                    val favorite = i.toObject(Favorite::class.java)!!
-//                    favorite.favoriteId = i.id
-//
-//                    list.add(favorite)
-//                }
-//
-//                when (fragment) {
-//                    is SaveFragment -> {
-////                        fragment.successCartItemsList(list)
-//                    }
-//                }
-//            }
-//            .addOnFailureListener { e ->
-//                // Hide the progress dialog if there is an error based on the activity instance.
-//                when (fragment) {
-//                    is SaveFragment -> {
-////                        fragment.successCartItemsList(list)
-//                    }
-//                }
-//
-//                Log.e(fragment.javaClass.simpleName, "Error while getting the favorite list items.", e)
-//            }
-//    }
 
     fun getFavoriteList(): LiveData<ArrayList<Favorite>>{
         val fragment : Fragment = SaveFragment()

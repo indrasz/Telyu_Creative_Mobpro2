@@ -39,8 +39,6 @@ class CreationDetailActivity : BaseActivity() {
             binding.ivFavorite.setOnClickListener {
                 addToFavorite()
             }
-
-
         }
 
     }
@@ -55,9 +53,16 @@ class CreationDetailActivity : BaseActivity() {
             binding.ivCreation
         )
 
+        GlideLoader(this@CreationDetailActivity).loadUserPicture(
+            creation.userImage,
+            binding.ivUser
+        )
+
+
         binding.apply {
             tvCreationName.text = creation.title
             tvCreationDesc.text = creation.description
+            tvUsername.text = creation.userName
         }
 
         FirestoreProvider().checkIfCreationExistInFavorite(this, mCreationId)
@@ -66,10 +71,8 @@ class CreationDetailActivity : BaseActivity() {
 
     private fun getCreationDetails() {
 
-        // Show the product dialog
         showProgressDialog(resources.getString(R.string.please_wait))
 
-        // Call the function of FirestoreClass to get the product details.
         FirestoreProvider().getCreationDetails(this@CreationDetailActivity, mCreationId)
     }
 
@@ -90,7 +93,6 @@ class CreationDetailActivity : BaseActivity() {
     }
 
     fun creationExistsInFavorite() {
-        // Hide the progress dialog.
         hideProgressDialog()
 
         binding.ivFavorite.visibility = View.GONE
@@ -100,7 +102,6 @@ class CreationDetailActivity : BaseActivity() {
 
     fun creationSuccessAddToFavorite() {
 
-        // Hide the progress dialog
         hideProgressDialog()
 
         Toast.makeText(

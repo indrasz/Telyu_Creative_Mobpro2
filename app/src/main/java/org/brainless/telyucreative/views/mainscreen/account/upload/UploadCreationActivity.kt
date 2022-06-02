@@ -20,6 +20,7 @@ import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityUploadCreationBinding
 import org.brainless.telyucreative.data.remote.FirestoreProvider
 import org.brainless.telyucreative.data.model.Creation
+import org.brainless.telyucreative.data.model.User
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
@@ -30,6 +31,8 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityUploadCreationBinding
     private lateinit var activityLauncher : ActivityResultLauncher<Intent>
 
+    private lateinit var userDetail : User
+
     private var mSelectedImageFileUri: Uri? = null
     private var mProductImageURL: String = ""
 
@@ -39,6 +42,9 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         setupActionBar()
+        if (intent.hasExtra(Constant.EXTRA_USER_DETAILS)) {
+            userDetail = intent.getParcelableExtra(Constant.EXTRA_USER_DETAILS)!!
+        }
 
         activityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK && result.data != null) {
@@ -114,9 +120,7 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
                 }
 
                 R.id.btn_upload_creation -> {
-                    if (validateCreationDetails()) {
-                        uploadCreationImage()
-                    }
+                    if (validateCreationDetails()) uploadCreationImage()
                 }
             }
         }
@@ -204,15 +208,15 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
 
     private fun uploadCreationDetails() {
 
-        // Get the logged in username from the SharedPreferences that we have stored at a time of login.
         val username =
             this.getSharedPreferences(Constant.TELYUCREATIVE_PREFERENCES, Context.MODE_PRIVATE)
                 .getString(Constant.LOGGED_IN_USERNAME, "")!!
 
-        // Here we get the text from editText and trim the space
+
         val creation = Creation(
             FirestoreProvider().getCurrentUserID(),
             username,
+            userDetail.image,
             binding.edtTitle.text.toString().trim { it <= ' ' },
             binding.edtDesc.text.toString().trim { it <= ' ' },
             binding.spCategory.text.toString().trim { it <= ' ' },

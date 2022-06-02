@@ -45,7 +45,7 @@ class OurRecommendationAdapter (private var items: ArrayList<Creation>, var hand
                 .load(creation.image)
                 .into(ivPopularSerach)
             Glide.with(this.root)
-                .load(R.drawable.ic_user_profile)
+                .load(creation.userImage)
                 .into(ivUserProfile)
             tvUsername.text = creation.userName
             tvCategory.text = creation.category

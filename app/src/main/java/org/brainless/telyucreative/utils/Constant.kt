@@ -13,7 +13,6 @@ object Constant{
     const val USERS: String = "users"
     const val CREATION: String = "creation"
     const val FAVORITE: String = "favorite"
-    const val FAVORITE_ITEM: String = "favorite_item"
 
     const val TELYUCREATIVE_PREFERENCES: String = "TelyuCreativePrefs"
     const val LOGGED_IN_USERNAME: String = "logged_in_username"
@@ -59,10 +58,6 @@ object Constant{
     const val USER_PROFILE_IMAGE: String = "User_Profile_Image"
     const val CREATION_IMAGE: String = "Creation_Image"
 
-    const val CART_QUANTITY: String = "cart_quantity"
-
-    const val STOCK_QUANTITY: String = "stock_quantity"
-
     const val HOME: String = "Home"
     const val OFFICE: String = "Office"
     const val OTHER: String = "Other"
@@ -77,7 +72,6 @@ object Constant{
     }
 
     fun getFileExtension(activity: Activity, uri: Uri?): String? {
-
         return MimeTypeMap.getSingleton()
             .getExtensionFromMimeType(activity.contentResolver.getType(uri!!))
     }

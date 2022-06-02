@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Creation(
     val userId: String = "",
     val userName: String = "",
+    val userImage: String = "",
     val title: String = "",
     val description: String = "",
     val category: String = "",
