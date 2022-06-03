@@ -81,7 +81,7 @@
                 style="@style/TextView.input"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                android:text="@string/belum_ada_karya_yang_kamu_masukan_kedalam_wishlist_silahkan_eksplore_dan_temukan_karya_anak_bangsa_yang_menginspirasimu"/>
+                android:text="@string/subtext_empty_save"/>
 
             <Button
                 android:id="@+id/btn_login"
