@@ -19,6 +19,7 @@ import org.brainless.telyucreative.views.authscreen.LoginActivity
 import org.brainless.telyucreative.views.authscreen.RegisterActivity
 import org.brainless.telyucreative.views.detailscreen.CreationDetailActivity
 import org.brainless.telyucreative.views.mainscreen.account.AccountFragment
+import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
@@ -305,6 +306,42 @@ class FirestoreProvider {
 
         return creationData
     }
+
+    fun getCreationListData(): LiveData<ArrayList<Creation>>{
+        val activity : Activity = DashboardActivity()
+        val creationData = MutableLiveData<ArrayList<Creation>>()
+
+        try {
+            mFireStore.collection(Constant.CREATION)
+                .whereEqualTo(Constant.USER_ID, getCurrentUserID())
+                .get()
+                .addOnSuccessListener{ document ->
+
+                    Log.e(activity.javaClass.simpleName, document.documents.toString())
+
+                    val creationList: ArrayList<Creation> = ArrayList()
+
+                    for (i in document.documents) {
+
+                        val creation = i.toObject(Creation::class.java)!!
+                        creation.creationId = i.id
+                        creationList.add(creation)
+                    }
+
+                    creationData.value = creationList
+                }
+
+                .addOnFailureListener { e ->
+                    Log.e(activity.javaClass.simpleName, "Error while getting data user account.", e)
+                }
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return creationData
+    }
+
 
     fun getCreationDetails(activity: CreationDetailActivity, creationId: String) {
 

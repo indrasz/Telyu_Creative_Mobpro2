@@ -11,7 +11,7 @@ data class Creation(
     val title: String = "",
     val description: String = "",
     val category: String = "",
-    val urlLink: String = "",
+    val urlLink: String? = null,
     val image: String = "",
     var creationId: String = "",
 ) : Parcelable

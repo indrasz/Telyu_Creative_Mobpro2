@@ -99,13 +99,16 @@
         </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_dashboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:paddingBottom="32dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/section_user_profile" />
+            app:layout_constraintTop_toBottomOf="@+id/section_user_profile"
+            tools:listitem="@layout/item_dashboard" />
 
         <LinearLayout
             android:id="@+id/frame_empty_dashboard"

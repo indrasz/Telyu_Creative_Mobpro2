@@ -6,6 +6,8 @@
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_folder_upload.xml" value="0.13" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_input.xml" value="0.1335" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_input_shape.xml" value="0.1675" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_shape.xml" value="0.134" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_shape_rectangle.xml" value="0.134" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_spinner_category.xml" value="0.1335" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bg_textarea.xml" value="0.1335" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/bottom_selector_item.xml" value="0.178" />
@@ -17,10 +19,11 @@
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/ic_folder_upload.xml" value="0.192" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/drawable/ic_home_active.xml" value="0.178" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout-v28/activity_edit_profile.xml" value="0.18795289855072464" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout-v31/item_save.xml" value="0.1766304347826087" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_auth.xml" value="0.15307971014492755" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_base.xml" value="0.15715579710144928" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_creation_detail.xml" value="0.33" />
-        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_dashboard.xml" value="0.24030037546933666" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_forgot_password.xml" value="0.22" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/activity_login.xml" value="0.22" />
@@ -39,10 +42,10 @@
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_save.xml" value="0.2" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_search.xml" value="0.15715579710144928" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/fragment_second.xml" value="0.1" />
-        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_dashboard.xml" value="0.1133879781420765" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_dashboard.xml" value="0.33" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_our_recommendation.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_popular_search.xml" value="0.25" />
-        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_save.xml" value="0.22" />
+        <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_save.xml" value="0.67" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/item_search.xml" value="0.1633176571184267" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/layout/layout_toolbar.xml" value="0.25" />
         <entry key="..\:/Apps/Projects/Mobile/Kotlin/Util/TelyuCreative/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />

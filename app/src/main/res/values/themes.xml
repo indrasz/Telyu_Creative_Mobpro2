@@ -88,6 +88,12 @@
     <style name="Circular">
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="CirculaSm">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
     <style name="Theme.TelyuCreative.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
