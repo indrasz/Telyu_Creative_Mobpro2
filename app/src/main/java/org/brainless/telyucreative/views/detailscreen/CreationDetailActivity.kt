@@ -4,9 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.google.android.material.drawable.DrawableUtils
 import org.brainless.telyucreative.R
-import org.brainless.telyucreative.data.remote.FirestoreProvider
+import org.brainless.telyucreative.data.remote.provider.FirestoreProvider
 import org.brainless.telyucreative.databinding.ActivityCreationDetailBinding
 import org.brainless.telyucreative.data.model.Creation
 import org.brainless.telyucreative.data.model.Favorite

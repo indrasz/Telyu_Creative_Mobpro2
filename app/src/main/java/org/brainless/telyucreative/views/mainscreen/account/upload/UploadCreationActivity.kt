@@ -18,7 +18,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ActivityUploadCreationBinding
-import org.brainless.telyucreative.data.remote.FirestoreProvider
+import org.brainless.telyucreative.data.remote.provider.FirestoreProvider
 import org.brainless.telyucreative.data.model.Creation
 import org.brainless.telyucreative.data.model.User
 import org.brainless.telyucreative.utils.BaseActivity

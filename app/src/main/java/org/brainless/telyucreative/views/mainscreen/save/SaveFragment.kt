@@ -7,14 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.data.model.Favorite
-import org.brainless.telyucreative.data.remote.FirestoreProvider
+import org.brainless.telyucreative.data.remote.provider.FirestoreProvider
 import org.brainless.telyucreative.databinding.FragmentSaveBinding
 import org.brainless.telyucreative.utils.BaseFragment
 import org.brainless.telyucreative.utils.Constant

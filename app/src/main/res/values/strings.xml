@@ -125,4 +125,6 @@
     <string name="subtext_empty_dashboard">Maaf, Belum ada karya yang kamu Upload silahkan upload karyamu terlebih dahulu.</string>
     <string name="eksplore">Eksplore</string>
     <string name="lihat_profil">Lihat Profil</string>
+    <string name="koneksi_error">Koneksi Error</string>
+    <string name="message">%1$s diklik</string>
 </resources>

@@ -1,4 +1,4 @@
-package org.brainless.telyucreative.data.remote
+package org.brainless.telyucreative.data.remote.provider
 
 import android.app.Activity
 import android.content.Context

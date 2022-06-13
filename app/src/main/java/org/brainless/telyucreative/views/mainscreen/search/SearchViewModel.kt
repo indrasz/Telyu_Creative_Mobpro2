@@ -3,9 +3,8 @@ package org.brainless.telyucreative.views.mainscreen.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.brainless.telyucreative.data.model.Category
 import org.brainless.telyucreative.data.model.Creation
-import org.brainless.telyucreative.data.remote.FirestoreProvider
+import org.brainless.telyucreative.data.remote.provider.FirestoreProvider
 
 class SearchViewModel : ViewModel() {
 

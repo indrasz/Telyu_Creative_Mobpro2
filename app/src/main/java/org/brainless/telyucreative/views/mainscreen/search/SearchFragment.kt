@@ -9,18 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import org.brainless.telyucreative.R
 import org.brainless.telyucreative.data.model.Creation
-import org.brainless.telyucreative.data.model.Favorite
-import org.brainless.telyucreative.data.remote.FirestoreProvider
-import org.brainless.telyucreative.databinding.FragmentSaveBinding
 import org.brainless.telyucreative.databinding.FragmentSearchBinding
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.detailscreen.CreationDetailActivity
-import org.brainless.telyucreative.views.mainscreen.save.SaveAdapter
-import org.brainless.telyucreative.views.mainscreen.save.SaveViewModel
 
 class SearchFragment : Fragment() {
 

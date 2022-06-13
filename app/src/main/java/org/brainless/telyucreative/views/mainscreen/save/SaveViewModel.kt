@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.brainless.telyucreative.data.model.Favorite
-import org.brainless.telyucreative.data.remote.FirestoreProvider
+import org.brainless.telyucreative.data.remote.provider.FirestoreProvider
 
 class SaveViewModel : ViewModel(){
 

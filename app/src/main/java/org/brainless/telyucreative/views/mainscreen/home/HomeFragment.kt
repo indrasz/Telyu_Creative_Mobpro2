@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import org.brainless.telyucreative.databinding.FragmentHomeBinding
 import org.brainless.telyucreative.data.model.Category
 import org.brainless.telyucreative.data.model.Creation
+import org.brainless.telyucreative.data.remote.network.ApiStatus
 import org.brainless.telyucreative.utils.BaseFragment
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.views.detailscreen.CreationDetailActivity
@@ -23,7 +24,7 @@ class HomeFragment : BaseFragment() {
     private lateinit var binding :FragmentHomeBinding
     private lateinit var popularSearchAdapter: PopularSearchAdapter
     private lateinit var ourRecommendationAdapter: OurRecommendationAdapter
-    private val arrayOfPopularSearch = arrayListOf<Category>()
+//    private val arrayOfPopularSearch = arrayListOf<Category>()
     private var arrayOfOurRecommendation = arrayListOf<Creation>()
 
     private val viewModel: HomeViewModel by lazy {
@@ -51,14 +52,15 @@ class HomeFragment : BaseFragment() {
     @SuppressLint("Recycle")
     private fun popularSearchView() {
 
-        popularSearchAdapter = PopularSearchAdapter(arrayOfPopularSearch) {
-            Snackbar.make(
-                binding.root,
-                "${it.name}",
-                Snackbar.LENGTH_SHORT,
-
-                ).show()
-        }
+        popularSearchAdapter = PopularSearchAdapter()
+//        {
+//            Snackbar.make(
+//                binding.root,
+//                it.nama,
+//                Snackbar.LENGTH_SHORT,
+//
+//                ).show()
+//        }
         with(binding.rvPopularSearch) {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
@@ -95,6 +97,24 @@ class HomeFragment : BaseFragment() {
 
         viewModel.getCategoryData().observe(viewLifecycleOwner) {
             popularSearchAdapter.setListDataCategory(it)
+        }
+        viewModel.getStatus().observe(viewLifecycleOwner) {
+            updateProgress(it)
+        }
+    }
+
+    private fun updateProgress(status: ApiStatus) {
+        when (status) {
+            ApiStatus.LOADING -> {
+                binding.progressBar.visibility = View.VISIBLE
+            }
+            ApiStatus.SUCCESS -> {
+                binding.progressBar.visibility = View.GONE
+            }
+            ApiStatus.FAILED -> {
+                binding.progressBar.visibility = View.GONE
+                binding.networkError.visibility = View.VISIBLE
+            }
         }
     }
 }
