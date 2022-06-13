@@ -58,21 +58,14 @@ class AccountFragment : Fragment(){
                 )
             }
             uploadCreation.setOnClickListener {
-//                startActivity(
-//                    Intent(
-//                        activity, UploadCreationActivity::class.java
-//                    )
-//                )
                 val intent = Intent(activity, UploadCreationActivity::class.java)
                 intent.putExtra(Constant.EXTRA_USER_DETAILS, mUserDetails)
                 startActivity(intent)
             }
             dashboard.setOnClickListener {
-                startActivity(
-                    Intent(
-                        activity, DashboardActivity::class.java
-                    )
-                )
+                val intent = Intent(activity, DashboardActivity::class.java)
+                intent.putExtra(Constant.EXTRA_USER_DETAILS, mUserDetails)
+                startActivity(intent)
             }
 
             tvLogout.setOnClickListener{

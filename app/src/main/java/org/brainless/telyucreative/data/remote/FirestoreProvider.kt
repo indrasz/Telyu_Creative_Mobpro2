@@ -166,65 +166,73 @@ class FirestoreProvider {
             )
         )
 
-        sRef.putFile(imageFileURI!!)
-            .addOnSuccessListener { taskSnapshot ->
-                Log.e(
-                    "Firebase Image URL",
-                    taskSnapshot.metadata!!.reference!!.downloadUrl.toString()
-                )
-                taskSnapshot.metadata!!.reference!!.downloadUrl
-                    .addOnSuccessListener { uri ->
-                        Log.e("Downloadable Image URL", uri.toString())
+        try {
+            sRef.putFile(imageFileURI!!)
+                .addOnSuccessListener { taskSnapshot ->
+                    Log.e(
+                        "Firebase Image URL",
+                        taskSnapshot.metadata!!.reference!!.downloadUrl.toString()
+                    )
+                    taskSnapshot.metadata!!.reference!!.downloadUrl
+                        .addOnSuccessListener { uri ->
+                            Log.e("Downloadable Image URL", uri.toString())
 
-                        // Here call a function of base activity for transferring the result to it.
-                        when (activity) {
-                            is UserProfileActivity -> {
-                                activity.imageUploadSuccess(uri.toString())
+                            // Here call a function of base activity for transferring the result to it.
+                            when (activity) {
+                                is UserProfileActivity -> {
+                                    activity.imageUploadSuccess(uri.toString())
+                                }
+
+                                is UploadCreationActivity -> {
+                                    activity.imageUploadSuccess(uri.toString())
+                                }
+
                             }
-
-                            is UploadCreationActivity -> {
-                                activity.imageUploadSuccess(uri.toString())
-                            }
-
                         }
-                    }
-            }
-            .addOnFailureListener { exception ->
-                when (activity) {
-                    is UserProfileActivity -> {
-                        activity.hideProgressDialog()
-                    }
-
-                    is UploadCreationActivity -> {
-                        activity.hideProgressDialog()
-                    }
-
                 }
+                .addOnFailureListener { exception ->
+                    when (activity) {
+                        is UserProfileActivity -> {
+                            activity.hideProgressDialog()
+                        }
 
-                Log.e(
-                    activity.javaClass.simpleName,
-                    exception.message,
-                    exception
-                )
-            }
+                        is UploadCreationActivity -> {
+                            activity.hideProgressDialog()
+                        }
+
+                    }
+
+                    Log.e(
+                        activity.javaClass.simpleName,
+                        exception.message,
+                        exception
+                    )
+                }
+        } catch (e : IOException){
+            e.printStackTrace()
+        }
     }
 
     fun uploadCreationDetails(activity: UploadCreationActivity, creationInfo: Creation) {
 
-        mFireStore.collection(Constant.CREATION)
-            .document()
-            .set(creationInfo, SetOptions.merge())
-            .addOnSuccessListener {
-                activity.creationUploadSuccess()
-            }
-            .addOnFailureListener { e ->
-                activity.hideProgressDialog()
-                Log.e(
-                    activity.javaClass.simpleName,
-                    "Error while uploading the product details.",
-                    e
-                )
-            }
+        try {
+            mFireStore.collection(Constant.CREATION)
+                .document()
+                .set(creationInfo, SetOptions.merge())
+                .addOnSuccessListener {
+                    activity.creationUploadSuccess()
+                }
+                .addOnFailureListener { e ->
+                    activity.hideProgressDialog()
+                    Log.e(
+                        activity.javaClass.simpleName,
+                        "Error while uploading the product details.",
+                        e
+                    )
+                }
+        } catch (e : IOException){
+            e.printStackTrace()
+        }
     }
 
     fun getDataUserAccount(): LiveData<User?> {
@@ -318,19 +326,14 @@ class FirestoreProvider {
                 .addOnSuccessListener{ document ->
 
                     Log.e(activity.javaClass.simpleName, document.documents.toString())
-
                     val creationList: ArrayList<Creation> = ArrayList()
-
                     for (i in document.documents) {
-
                         val creation = i.toObject(Creation::class.java)!!
                         creation.creationId = i.id
                         creationList.add(creation)
                     }
-
                     creationData.value = creationList
                 }
-
                 .addOnFailureListener { e ->
                     Log.e(activity.javaClass.simpleName, "Error while getting data user account.", e)
                 }
@@ -341,7 +344,6 @@ class FirestoreProvider {
 
         return creationData
     }
-
 
     fun getCreationDetails(activity: CreationDetailActivity, creationId: String) {
 

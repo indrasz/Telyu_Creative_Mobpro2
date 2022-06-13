@@ -42,10 +42,8 @@ class SaveFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         checkFavorite()
-
         successFavoriteList()
         observeData()
-
     }
 
     @SuppressLint("Recycle")
@@ -61,7 +59,6 @@ class SaveFragment : BaseFragment() {
                 }
 
                 override fun onDelete(position: Int, favorite: Favorite) {
-//
                     MaterialAlertDialogBuilder(requireContext())
                         .setTitle("Konfirmasi penghapusan")
                         .setMessage("Yakin ingin menghapus karya ini dari favorit ?")
@@ -73,7 +70,6 @@ class SaveFragment : BaseFragment() {
                                 favorite.favoriteId
                             )
                             showProgressDialog(resources.getString(R.string.please_wait))
-//                            refreshPage()
                         }.show()
 
 
@@ -86,42 +82,33 @@ class SaveFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = saveAdapter
         }
-
     }
 
     private fun observeData(){
         viewModel.initData().observe(viewLifecycleOwner) {
             saveAdapter.setListData(it)
         }
-
     }
 
     private fun checkFavorite() {
         showProgressDialog(resources.getString(R.string.please_wait))
         FirestoreProvider().checkEmptyFavorite(this@SaveFragment)
-
-
     }
 
     fun ifFavoriteListIsEmpty() {
-
         hideProgressDialog()
         binding.rvFavoriteList.visibility = View.VISIBLE
         binding.frameEmptyFavorit.visibility = View.GONE
     }
 
     fun itemRemovedSuccess() {
-
         hideProgressDialog()
-
         Toast.makeText(
             requireContext(),
             resources.getString(R.string.msg_item_removed_successfully),
             Toast.LENGTH_SHORT
         ).show()
         observeData()
-
-
     }
 
 }

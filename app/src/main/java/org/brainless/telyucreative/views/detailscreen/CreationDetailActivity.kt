@@ -1,5 +1,6 @@
 package org.brainless.telyucreative.views.detailscreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -12,15 +13,13 @@ import org.brainless.telyucreative.data.model.Favorite
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
+import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
 
 class CreationDetailActivity : BaseActivity() {
 
     private lateinit var mCreationDetail: Creation
-
     private var mCreationId: String = ""
-
     private var creationOwnerId: String = ""
-
     private lateinit var binding : ActivityCreationDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,12 +29,12 @@ class CreationDetailActivity : BaseActivity() {
 
         binding.ivFavoriteCheck.visibility = View.GONE
 
-        if (intent.hasExtra(Constant.EXTRA_CREATION_ID) && intent.hasExtra(Constant.EXTRA_CREATION_OWNER_ID)) {
+        if (intent.hasExtra(Constant.EXTRA_CREATION_ID)
+            && intent.hasExtra(Constant.EXTRA_CREATION_OWNER_ID)
+        ) {
             mCreationId = intent.getStringExtra(Constant.EXTRA_CREATION_ID)!!
             creationOwnerId = intent.getStringExtra(Constant.EXTRA_CREATION_OWNER_ID)!!
-
             getCreationDetails()
-
             binding.ivFavorite.setOnClickListener {
                 addToFavorite()
             }
@@ -63,6 +62,12 @@ class CreationDetailActivity : BaseActivity() {
             tvCreationName.text = creation.title
             tvCreationDesc.text = creation.description
             tvUsername.text = creation.userName
+
+            btnSeeCreator.setOnClickListener {
+                val intent = Intent(this@CreationDetailActivity, DashboardActivity::class.java)
+                intent.putExtra(Constant.EXTRA_CREATION_OWNER_ID, creationOwnerId)
+                startActivity(intent)
+            }
         }
 
         FirestoreProvider().checkIfCreationExistInFavorite(this, mCreationId)
@@ -70,9 +75,7 @@ class CreationDetailActivity : BaseActivity() {
     }
 
     private fun getCreationDetails() {
-
         showProgressDialog(resources.getString(R.string.please_wait))
-
         FirestoreProvider().getCreationDetails(this@CreationDetailActivity, mCreationId)
     }
 

@@ -133,7 +133,6 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == Constant.READ_STORAGE_PERMISSION_CODE) {
-            //If permission is granted
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                 Constant.showImageChooser(activityLauncher)
@@ -198,10 +197,8 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
     }
 
     fun imageUploadSuccess(imageURL: String) {
-
         // Initialize the global image url variable.
         mProductImageURL = imageURL
-
         uploadCreationDetails()
     }
 
@@ -211,8 +208,6 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
         val username =
             this.getSharedPreferences(Constant.TELYUCREATIVE_PREFERENCES, Context.MODE_PRIVATE)
                 .getString(Constant.LOGGED_IN_USERNAME, "")!!
-
-
         val creation = Creation(
             FirestoreProvider().getCurrentUserID(),
             username,
@@ -223,21 +218,16 @@ class UploadCreationActivity : BaseActivity(), View.OnClickListener {
             binding.edtUrlLink.text.toString().trim { it <= ' ' },
             mProductImageURL
         )
-
         FirestoreProvider().uploadCreationDetails(this@UploadCreationActivity, creation)
     }
 
     fun creationUploadSuccess() {
-
-        // Hide the progress dialog
         hideProgressDialog()
-
         Toast.makeText(
             this@UploadCreationActivity,
             resources.getString(R.string.creation_uploaded_success_message),
             Toast.LENGTH_SHORT
         ).show()
-
         finish()
     }
 }
