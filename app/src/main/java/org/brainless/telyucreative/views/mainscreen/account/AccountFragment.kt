@@ -13,7 +13,7 @@ import org.brainless.telyucreative.data.model.User
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
 import org.brainless.telyucreative.views.authscreen.LoginActivity
-import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
+import org.brainless.telyucreative.views.mainscreen.account.dashboard.owner.DashboardActivity
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.telyuaccount.TelyuAccountActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity

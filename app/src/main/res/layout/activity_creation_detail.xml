@@ -104,7 +104,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="12dp"
-                android:text="Nama Karya"
+                android:text="@string/creation_name"
+                style="@style/TextView.titleSection"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_share" />
 
@@ -114,7 +115,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="16dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iaculis at nisl senectus sed convallis enim enim, elementum ornare. Vel proin morbi sed etiam risus. Et ut ornare porta quisque mi lacus. Sagittis, faucibus amet, auctor auctor massa sit et condimentum rhoncus. Diam eu amet, egestas morbi faucibus nunc massa nunc, id.        "
+                android:text="@string/creation_description"
+                style="@style/TextView.input"
+                android:textColor="@color/black"
+                android:justificationMode="inter_word"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_creation_name" />

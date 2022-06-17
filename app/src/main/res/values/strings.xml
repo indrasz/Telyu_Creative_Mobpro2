@@ -47,7 +47,6 @@
     <string name="msg_item_removed_successfully">Item removed successfully.</string>
 
 
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">home</string>
@@ -127,4 +126,6 @@
     <string name="lihat_profil">Lihat Profil</string>
     <string name="koneksi_error">Koneksi Error</string>
     <string name="message">%1$s diklik</string>
+    <string name="creation_name">Creation Name</string>
+    <string name="creation_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iaculis at nisl senectus sed convallis enim enim, elementum ornare. Vel proin morbi sed etiam risus. Et ut ornare porta quisque mi lacus. Sagittis, faucibus amet, auctor auctor massa sit et condimentum rhoncus. Diam eu amet, egestas morbi faucibus nunc massa nunc, id.</string>
 </resources>

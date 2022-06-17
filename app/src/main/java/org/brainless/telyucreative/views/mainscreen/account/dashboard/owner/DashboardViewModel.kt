@@ -1,4 +1,4 @@
-package org.brainless.telyucreative.views.mainscreen.account.dashboard
+package org.brainless.telyucreative.views.mainscreen.account.dashboard.owner
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

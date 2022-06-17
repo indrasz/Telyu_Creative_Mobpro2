@@ -19,7 +19,8 @@ import org.brainless.telyucreative.views.authscreen.LoginActivity
 import org.brainless.telyucreative.views.authscreen.RegisterActivity
 import org.brainless.telyucreative.views.detailscreen.CreationDetailActivity
 import org.brainless.telyucreative.views.mainscreen.account.AccountFragment
-import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
+import org.brainless.telyucreative.views.mainscreen.account.dashboard.other.DashboardOtherActivity
+import org.brainless.telyucreative.views.mainscreen.account.dashboard.owner.DashboardActivity
 import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileActivity
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
@@ -357,6 +358,27 @@ class FirestoreProvider {
                 val creation = document.toObject(Creation::class.java)!!
 
                 activity.creationDetailSuccess(creation)
+            }
+            .addOnFailureListener { e ->
+
+                activity.hideProgressDialog()
+
+                Log.e(activity.javaClass.simpleName, "Error while getting the creation details.", e)
+            }
+    }
+
+    fun getDashboardUser(activity: DashboardOtherActivity, userId: String){
+
+        mFireStore.collection(Constant.USERS)
+            .document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+
+                Log.e(activity.javaClass.simpleName, document.toString())
+
+                val user = document.toObject(User::class.java)!!
+
+                activity.dashboardDetailSuccess(user)
             }
             .addOnFailureListener { e ->
 

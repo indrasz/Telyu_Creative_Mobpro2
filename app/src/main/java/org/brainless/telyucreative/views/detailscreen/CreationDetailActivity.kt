@@ -12,7 +12,8 @@ import org.brainless.telyucreative.data.model.Favorite
 import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
-import org.brainless.telyucreative.views.mainscreen.account.dashboard.DashboardActivity
+import org.brainless.telyucreative.views.mainscreen.account.dashboard.other.DashboardOtherActivity
+import org.brainless.telyucreative.views.mainscreen.account.dashboard.owner.DashboardActivity
 
 class CreationDetailActivity : BaseActivity() {
 
@@ -45,7 +46,6 @@ class CreationDetailActivity : BaseActivity() {
 
         mCreationDetail = creation
 
-        // Populate the creation details in the UI.
         GlideLoader(this@CreationDetailActivity).loadCreationPicture(
             creation.image,
             binding.ivCreation
@@ -56,15 +56,14 @@ class CreationDetailActivity : BaseActivity() {
             binding.ivUser
         )
 
-
         binding.apply {
             tvCreationName.text = creation.title
             tvCreationDesc.text = creation.description
             tvUsername.text = creation.userName
 
             btnSeeCreator.setOnClickListener {
-                val intent = Intent(this@CreationDetailActivity, DashboardActivity::class.java)
-                intent.putExtra(Constant.EXTRA_CREATION_OWNER_ID, creationOwnerId)
+                val intent = Intent(this@CreationDetailActivity, DashboardOtherActivity::class.java)
+                intent.putExtra(Constant.USERS, creationOwnerId)
                 startActivity(intent)
             }
         }
@@ -95,6 +94,7 @@ class CreationDetailActivity : BaseActivity() {
     }
 
     fun creationExistsInFavorite() {
+
         hideProgressDialog()
 
         binding.ivFavorite.visibility = View.GONE

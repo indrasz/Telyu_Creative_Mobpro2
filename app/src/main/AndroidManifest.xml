@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.brainless.telyucreative">
+    package="org.brainless.telyucreative" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,48 +15,52 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.TelyuCreative"
-        tools:ignore="LockedOrientationActivity">
+        tools:ignore="LockedOrientationActivity" >
+        <activity
+            android:name=".views.mainscreen.account.dashboard.other.DashboardOtherActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".views.detailscreen.CreationDetailActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
             android:label="@string/title_activity_creation_detail"
-            android:theme="@style/Theme.TelyuCreative.NoActionBar"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TelyuCreative.NoActionBar" />
         <activity
             android:name=".views.mainscreen.account.upload.UploadCreationActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.mainscreen.account.telyuaccount.TelyuAccountActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".views.mainscreen.account.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:name=".views.mainscreen.account.dashboard.owner.DashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.mainscreen.account.profile.UserProfileActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.authscreen.ForgotPasswordActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".utils.BaseActivity"
             android:exported="false" />
         <activity
             android:name=".views.authscreen.RegisterActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.authscreen.LoginActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".views.splashscreen.SplashScreenActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,8 +69,8 @@
         </activity>
         <activity
             android:name=".views.mainscreen.MainActivity"
-            android:screenOrientation="portrait"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"

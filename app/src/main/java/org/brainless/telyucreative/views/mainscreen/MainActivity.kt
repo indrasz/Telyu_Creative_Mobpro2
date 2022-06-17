@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_search,
             R.id.navigation_profile
         ).build()
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
 
         supportActionBar?.hide()

@@ -1,4 +1,4 @@
-package org.brainless.telyucreative.views.mainscreen.account.dashboard
+package org.brainless.telyucreative.views.mainscreen.account.dashboard.owner
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,14 +9,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import org.brainless.telyucreative.data.model.Creation
 import org.brainless.telyucreative.data.model.User
 import org.brainless.telyucreative.databinding.ActivityDashboardBinding
+import org.brainless.telyucreative.utils.BaseActivity
 import org.brainless.telyucreative.utils.Constant
 import org.brainless.telyucreative.utils.GlideLoader
 import org.brainless.telyucreative.views.detailscreen.CreationDetailActivity
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardActivity : BaseActivity() {
     private lateinit var binding : ActivityDashboardBinding
     private lateinit var userDetail : User
-    private var creationOwnerId: String = ""
+//    private var creationOwnerId: String = ""
     private lateinit var dashboardAdapter: DashboardAdapter
     private val arrayOfDashboard = arrayListOf<Creation>()
 
@@ -56,8 +57,6 @@ class DashboardActivity : AppCompatActivity() {
 //                }
 //            }
         }
-
-
 
         successGetDashboardList()
         observeData()

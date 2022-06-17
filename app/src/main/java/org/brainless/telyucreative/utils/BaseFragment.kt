@@ -22,14 +22,9 @@ open class BaseFragment : Fragment() {
 
         mProgressDialog.setCancelable(false)
         mProgressDialog.setCanceledOnTouchOutside(false)
-
-        //Start the dialog and display it on screen.
         mProgressDialog.show()
     }
 
-    /**
-     * This function is used to dismiss the progress dialog if it is visible to user.
-     */
     fun hideProgressDialog() {
         mProgressDialog.dismiss()
     }
