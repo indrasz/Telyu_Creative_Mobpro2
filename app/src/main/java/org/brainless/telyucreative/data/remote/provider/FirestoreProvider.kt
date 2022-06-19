@@ -346,6 +346,64 @@ class FirestoreProvider {
         return creationData
     }
 
+//    fun getCreationList( fragment : HomeFragment) {
+//        // The collection name for PRODUCTS
+//        mFireStore.collection(Constant.CREATION)
+//            .get() // Will get the documents snapshots.
+//            .addOnSuccessListener { document ->
+//
+//                // Here we get the list of boards in the form of documents.
+//                Log.e(fragment.javaClass.simpleName, document.documents.toString())
+//
+//                val creationList: ArrayList<Creation> = ArrayList()
+//
+//                for (i in document.documents) {
+//
+//                    val creation = i.toObject(Creation::class.java)!!
+//                    creation.creationId = i.id
+//                    creationList.add(creation)
+//                }
+//
+//                // Pass the success result to the base fragment.
+//                fragment.successOurRecommendationItemsList(creationList)
+//            }
+//            .addOnFailureListener { e ->
+//                // Hide the progress dialog if there is any error which getting the dashboard items list.
+//                fragment.hideProgressDialog()
+//                Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
+//            }
+//    }
+
+    fun getDashboardList(creationOwnerId : String): LiveData<ArrayList<Creation>>{
+        val activity : Activity = DashboardOtherActivity()
+        val creationData = MutableLiveData<ArrayList<Creation>>()
+
+        try {
+            mFireStore.collection(Constant.CREATION)
+                .whereEqualTo(Constant.USER_ID, creationOwnerId)
+                .get()
+                .addOnSuccessListener{ document ->
+
+                    Log.e(activity.javaClass.simpleName, document.documents.toString())
+                    val creationList: ArrayList<Creation> = ArrayList()
+                    for (i in document.documents) {
+                        val creation = i.toObject(Creation::class.java)!!
+                        creation.creationId = i.id
+                        creationList.add(creation)
+                    }
+                    creationData.value = creationList
+                }
+                .addOnFailureListener { e ->
+                    Log.e(activity.javaClass.simpleName, "Error while getting data user account.", e)
+                }
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return creationData
+    }
+
     fun getCreationDetails(activity: CreationDetailActivity, creationId: String) {
 
         mFireStore.collection(Constant.CREATION)
