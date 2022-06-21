@@ -60,6 +60,9 @@
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="@string/search_creation"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
                 android:padding="12dp" />
 
         </LinearLayout>

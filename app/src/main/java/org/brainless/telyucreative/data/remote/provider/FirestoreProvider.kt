@@ -25,6 +25,7 @@ import org.brainless.telyucreative.views.mainscreen.account.profile.UserProfileA
 import org.brainless.telyucreative.views.mainscreen.account.upload.UploadCreationActivity
 import org.brainless.telyucreative.views.mainscreen.home.HomeFragment
 import org.brainless.telyucreative.views.mainscreen.save.SaveFragment
+import org.brainless.telyucreative.views.mainscreen.search.SearchFragment
 import java.io.IOException
 
 class FirestoreProvider {
@@ -586,5 +587,66 @@ class FirestoreProvider {
                 )
             }
     }
+
+//    fun searchCreation(search : String, fragment : Fragment){
+//
+//
+//        mFireStore.collection(Constant.CREATION)
+//            .whereGreaterThanOrEqualTo(Constant.TITLE, search)
+//            .get() // Will get the documents snapshots.
+//            .addOnSuccessListener { document ->
+//
+//                // Here we get the list of boards in the form of documents.
+////                Log.e(fragment.javaClass.simpleName, document.documents.toString())
+//
+//                val creationList: ArrayList<Creation> = ArrayList()
+//
+//                for (i in document.documents) {
+//
+//                    val creation = i.toObject(Creation::class.java)!!
+//                    creation.creationId = i.id
+//                    creationList.add(creation)
+//                }
+//
+//                // Pass the success result to the base fragment.
+////                fragment.successOurRecommendationItemsList(creationList)
+//            }
+//            .addOnFailureListener { e ->
+//                // Hide the progress dialog if there is any error which getting the dashboard items list.
+////                fragment.hideProgressDialog()
+////                Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
+//            }
+//    }
+
+    fun searchCreation(search : String): LiveData<ArrayList<Creation>>{
+        val fragment : Fragment = SearchFragment()
+        val creationData = MutableLiveData<ArrayList<Creation>>()
+
+        try {
+            mFireStore.collection(Constant.CREATION)
+                .whereGreaterThanOrEqualTo(Constant.SEARCH, search)
+                .get()
+                .addOnSuccessListener{ document ->
+
+                    Log.e(fragment.javaClass.simpleName, document.documents.toString())
+                    val creationList: ArrayList<Creation> = ArrayList()
+                    for (i in document.documents) {
+                        val creation = i.toObject(Creation::class.java)!!
+                        creation.creationId = i.id
+                        creationList.add(creation)
+                    }
+                    creationData.value = creationList
+                }
+                .addOnFailureListener { e ->
+                    Log.e(fragment.javaClass.simpleName, "Error while getting data creation.", e)
+                }
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return creationData
+    }
+
 
 }

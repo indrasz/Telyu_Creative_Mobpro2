@@ -19,4 +19,14 @@ class SearchViewModel : ViewModel() {
 
         return mutableData
     }
+
+    fun initDataSearch(search : String) : LiveData<ArrayList<Creation>> {
+        val mutableData = MutableLiveData<ArrayList<Creation>>()
+
+        fireStore.searchCreation(search).observeForever{ creationList ->
+            mutableData.value = creationList
+        }
+
+        return mutableData
+    }
 }

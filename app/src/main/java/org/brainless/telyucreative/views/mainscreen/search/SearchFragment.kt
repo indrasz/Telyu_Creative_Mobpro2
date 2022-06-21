@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.SearchView
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import org.brainless.telyucreative.data.model.Creation
@@ -38,6 +41,13 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         successSearchList()
         observeData()
+
+        binding.edtSearch.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                searchData()
+            }
+            true
+        }
     }
 
     @SuppressLint("Recycle")
@@ -66,7 +76,18 @@ class SearchFragment : Fragment() {
         viewModel.initData().observe(viewLifecycleOwner) {
             searchAdapter.setListData(it)
         }
+    }
 
+    fun searchData(){
+        val dataCreation = binding.edtSearch.text.toString().trim{ it <= ' '}
+
+        searchDataCreation(dataCreation)
+    }
+
+    fun searchDataCreation(search : String){
+        viewModel.initDataSearch(search).observe(viewLifecycleOwner) {
+            searchAdapter.setListData(it)
+        }
     }
 
 

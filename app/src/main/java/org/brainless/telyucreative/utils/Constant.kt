@@ -41,6 +41,8 @@ object Constant{
     const val LAST_NAME: String = "lastName"
     const val USER_ID: String = "userId"
     const val CREATION_ID: String = "creationId"
+    const val TITLE: String = "title"
+    const val SEARCH: String = "search"
 
     const val USER_PROFILE_IMAGE: String = "User_Profile_Image"
     const val CREATION_IMAGE: String = "Creation_Image"
