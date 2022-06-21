@@ -69,8 +69,6 @@ class SaveFragment : BaseFragment() {
                             )
                             showProgressDialog(resources.getString(R.string.please_wait))
                         }.show()
-
-
                 }
             })
 
