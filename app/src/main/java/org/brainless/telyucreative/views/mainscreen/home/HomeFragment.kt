@@ -53,14 +53,6 @@ class HomeFragment : BaseFragment() {
     private fun popularSearchView() {
 
         popularSearchAdapter = PopularSearchAdapter()
-//        {
-//            Snackbar.make(
-//                binding.root,
-//                it.nama,
-//                Snackbar.LENGTH_SHORT,
-//
-//                ).show()
-//        }
         with(binding.rvPopularSearch) {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
@@ -101,6 +93,8 @@ class HomeFragment : BaseFragment() {
         viewModel.getStatus().observe(viewLifecycleOwner) {
             updateProgress(it)
         }
+
+        viewModel.scheduleUpdater(requireActivity().application)
     }
 
     private fun updateProgress(status: ApiStatus) {

@@ -1,10 +1,14 @@
 package org.brainless.telyucreative.views.mainscreen.home
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.brainless.telyucreative.R
@@ -13,6 +17,9 @@ import org.brainless.telyucreative.data.model.Category
 import org.brainless.telyucreative.data.model.Creation
 import org.brainless.telyucreative.data.remote.network.ApiStatus
 import org.brainless.telyucreative.data.remote.network.CategoryApi
+import org.brainless.telyucreative.data.remote.network.UpdateWorker
+import org.brainless.telyucreative.views.mainscreen.MainActivity
+import java.util.concurrent.TimeUnit
 
 class HomeViewModel : ViewModel() {
 
@@ -49,6 +56,18 @@ class HomeViewModel : ViewModel() {
 
     fun getCategoryData(): LiveData<List<Category>> = categoryData
     fun getStatus(): LiveData<ApiStatus> = status
+
+    fun scheduleUpdater(app: Application) {
+        val request = OneTimeWorkRequestBuilder<UpdateWorker>()
+            .setInitialDelay(1, TimeUnit.MINUTES)
+            .build()
+        WorkManager.getInstance(app).enqueueUniqueWork(
+            MainActivity.CHANNEL_ID,
+            ExistingWorkPolicy.REPLACE,
+            request
+
+        )
+    }
 
 //    init {
 //        categoryData.value = initCategoryData()

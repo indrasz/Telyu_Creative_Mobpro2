@@ -9,8 +9,10 @@ import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.ItemOurRecommendationBinding
 import org.brainless.telyucreative.data.model.Creation
 
-class OurRecommendationAdapter (private var items: ArrayList<Creation>, var handler: (Creation) -> Unit) :
-    RecyclerView.Adapter<OurRecommendationAdapter.OurRecommendationViewHolder>() {
+class OurRecommendationAdapter (
+    private var items: ArrayList<Creation>,
+    var handler: (Creation) -> Unit
+) : RecyclerView.Adapter<OurRecommendationAdapter.OurRecommendationViewHolder>() {
 
     private var onClickListener: OnClickListener? = null
 

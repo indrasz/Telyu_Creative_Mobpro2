@@ -129,4 +129,9 @@
     <string name="message">%1$s diklik</string>
     <string name="creation_name">Creation Name</string>
     <string name="creation_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iaculis at nisl senectus sed convallis enim enim, elementum ornare. Vel proin morbi sed etiam risus. Et ut ornare porta quisque mi lacus. Sagittis, faucibus amet, auctor auctor massa sit et condimentum rhoncus. Diam eu amet, egestas morbi faucibus nunc massa nunc, id.</string>
+
+    <string name="channel_name">Updater</string>
+    <string name="channel_desc">Update data hewan otomatis</string>
+    <string name="notif_title">Ada hewan baru!</string>
+    <string name="notif_text">Cek sekarang biar nggak penasaran..</string>
 </resources>
