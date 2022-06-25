@@ -36,13 +36,15 @@ class HomeFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+
+        popularSearchView()
+        successOurRecommendationItemsList()
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        popularSearchView()
-        successOurRecommendationItemsList()
 
         //viewmodel
         observeData()

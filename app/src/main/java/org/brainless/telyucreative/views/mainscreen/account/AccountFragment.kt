@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import org.brainless.telyucreative.databinding.FragmentAccountBinding
 import org.brainless.telyucreative.data.model.User
@@ -51,11 +52,11 @@ class AccountFragment : Fragment(){
             }
 
             seeWork.setOnClickListener{
-                startActivity(
-                    Intent(
-                        activity, TelyuAccountActivity::class.java
-                    )
-                )
+                Snackbar.make(
+                    root,
+                    "Fitur ini belum tersedia",
+                    Snackbar.LENGTH_SHORT,
+                    ).show()
             }
             uploadCreation.setOnClickListener {
                 val intent = Intent(activity, UploadCreationActivity::class.java)
