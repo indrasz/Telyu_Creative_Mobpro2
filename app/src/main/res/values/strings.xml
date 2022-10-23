@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Telyu Creative</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register_option">Don\'t have account?</string>
+    <string name="full_name">Full Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="register">Create Account</string>
+    <string name="login_option">Already have account?</string>
+    <string name="tv_login">Login</string>
+    <string name="please_wait">Please Wait&#8230;</string>
+    <string name="register_option_click">Register Here</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="hint_password">Enter Your Password</string>
+    <string name="email_sent_success">Email sent successfully to reset your password!</string>
+
+    <string name="err_msg_enter_first_name">Please enter first name.</string>
+    <string name="err_msg_enter_last_name">Please enter last name.</string>
+    <string name="err_msg_enter_email">Please enter email.</string>
+    <string name="err_msg_enter_password">Please enter password.</string>
+    <string name="err_msg_enter_confirm_password">Please enter confirm password.</string>
+    <string name="err_msg_password_and_confirm_password_mismatch">Password and confirm password does not match.</string>
+    <string name="err_msg_agree_terms_and_condition">Please agree terms and condition.</string>
+    <string name="msg_profile_update_success">Your profile is updated successfully.</string>
+    <string name="read_storage_permission_denied">Oops, you just denied the permission for storage. You can also allow it from settings.</string>
+    <string name="image_selection_failed">Image selection Failed!</string>
+
+    <string name="register_success">You are registered successfully.</string>
+    <string name="please_click_back_again_to_exit">Please click back again to exit.</string>
+    <string name="err_msg_enter_description">Please enter description.</string>
+    <string name="err_msg_enter_profession">Please enter your profession.</string>
+    <string name="err_msg_enter_link_insta">Please enter your Instagram username.</string>
+    <string name="err_msg_enter_link_yt">Please enter your Youtube Link.</string>
+    <string name="err_msg_enter_link_linkedin">Please enter your Linkedin Link.</string>
+
+    <string name="err_msg_select_creation_image">Please select creation image.</string>
+    <string name="err_msg_enter_creation_title">Please enter creation title.</string>
+    <string name="err_msg_enter_creation_desc">Please enter creation description.</string>
+    <string name="err_msg_enter_creation_category">Please enter creation category.</string>
+    <string name="err_msg_enter_creatio_link">Please enter product link.</string>
+
+    <string name="creation_uploaded_success_message">Your creation is uploaded successfully.</string>
+    <string name="creation_add_favorite_success_message">successfully add this creation to favorite .</string>
+    <string name="msg_item_removed_successfully">Item removed successfully.</string>
+    <string name="splash">SPLASH</string>
+    <string name="forgot_password">Forgot Password</string>
+
+</resources>
