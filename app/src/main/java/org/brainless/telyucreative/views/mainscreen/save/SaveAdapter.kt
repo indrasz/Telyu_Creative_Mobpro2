@@ -11,20 +11,20 @@ import org.brainless.telyucreative.data.model.Favorite
 import org.brainless.telyucreative.databinding.ItemOurRecommendationBinding
 import org.brainless.telyucreative.databinding.ItemSaveBinding
 
-class SaveAdapter (private var items: ArrayList<Favorite>, var handler: (Favorite) -> Unit) :
+class SaveAdapter(private var items: ArrayList<Favorite>, var handler: (Favorite) -> Unit) :
     RecyclerView.Adapter<SaveAdapter.SaveViewHolder>() {
 
     private var onClickListener: OnClickListener? = null
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setListData(data : ArrayList<Favorite>){
+    fun setListData(data: ArrayList<Favorite>) {
         items.clear()
         items.addAll(data)
         notifyDataSetChanged()
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : SaveViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SaveViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemSaveBinding.inflate(inflater, parent, false)
         return SaveViewHolder(binding)
@@ -65,6 +65,7 @@ class SaveAdapter (private var items: ArrayList<Favorite>, var handler: (Favorit
     fun setOnClickListener(onClickListener: OnClickListener) {
         this.onClickListener = onClickListener
     }
+
     interface OnClickListener {
         fun onClick(position: Int, favorite: Favorite)
         fun onDelete(position: Int, favorite: Favorite)

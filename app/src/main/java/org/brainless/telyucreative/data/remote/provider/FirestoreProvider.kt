@@ -401,30 +401,30 @@ class FirestoreProvider {
         } catch (e: IOException) {
             e.printStackTrace()
         }
+        fun getCreationDetails(activity: CreationDetailActivity, creationId: String) {
 
+            mFireStore.collection(Constant.CREATION)
+                .document(creationId)
+                .get()
+                .addOnSuccessListener { document ->
+
+                    Log.e(activity.javaClass.simpleName, document.toString())
+
+                    val creation = document.toObject(Creation::class.java)!!
+
+                    activity.creationDetailSuccess(creation)
+                }
+                .addOnFailureListener { e ->
+
+                    activity.hideProgressDialog()
+
+                    Log.e(activity.javaClass.simpleName, "Error while getting the creation details.", e)
+                }
+        }
         return creationData
     }
 
-    fun getCreationDetails(activity: CreationDetailActivity, creationId: String) {
 
-        mFireStore.collection(Constant.CREATION)
-            .document(creationId)
-            .get()
-            .addOnSuccessListener { document ->
-
-                Log.e(activity.javaClass.simpleName, document.toString())
-
-                val creation = document.toObject(Creation::class.java)!!
-
-                activity.creationDetailSuccess(creation)
-            }
-            .addOnFailureListener { e ->
-
-                activity.hideProgressDialog()
-
-                Log.e(activity.javaClass.simpleName, "Error while getting the creation details.", e)
-            }
-    }
 
     fun getDashboardUser(activity: DashboardOtherActivity, userId: String){
 

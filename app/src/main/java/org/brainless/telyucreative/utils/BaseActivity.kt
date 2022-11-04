@@ -1,8 +1,6 @@
 package org.brainless.telyucreative.utils
 
 import android.app.Dialog
-import android.content.Intent
-import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +8,6 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import org.brainless.telyucreative.R
 import org.brainless.telyucreative.databinding.DialogProgressBinding
-import org.brainless.telyucreative.views.authscreen.LoginActivity
 import java.lang.Exception
 
 open class BaseActivity : AppCompatActivity() {
